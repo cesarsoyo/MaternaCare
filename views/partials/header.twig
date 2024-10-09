@@ -1,0 +1,22 @@
+<header>
+	<h1>Ma super App</h1>
+	<nav>
+		<ul>
+			{% if user %}
+				<li>
+					<a href="/logout">Déconnexion</a>
+				</li>
+				<li>
+					<a href="/addbook">Ajouter un livre</a>
+				</li>
+			{% else %}
+				<li>
+					<a href="/login">Connexion</a>
+				</li>
+				<li>
+					<a href="/signin">Inscription</a>
+				</li>
+			{% endif %}
+		</ul>
+	</nav>
+</header>
