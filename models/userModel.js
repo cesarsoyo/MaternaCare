@@ -65,254 +65,61 @@ const userSchema = new mongoose.Schema({
         }
     },
     // 2nd FORM
+    socialNumber: {
+        type: Number,
+        required: [true, "Le numéro de sécurité social es requis"],
+        validate: {
+            validator: function (v) {
+                return /^\d{13}$/.test(v)
+            },
+            message: "Ce champ est obligatoire. Veuillez entrer votre numéro de sécurité social."
+        }
+    },
     birthday: {
         type: Date,
-        required: [true, "La date de naissance est optionnel"],
+        required: [true, "La date de naissance est requis"],
         validate: {
             validator: function (v) {
             },
-            message: ""
-        }
-    }, 
-    adress :{
-        type: String,
-        required: [false, "L'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
+            message: "Ce champ est obligatoire. Veuillez entrer une date de naissance."
         }
     },
-    complementAdress :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    city :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    zipCode :{
-        type: Number,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    numberTel :{
-        type: Number,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    socialNumber :{
-        type: Number,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
+    adress: String,
+    complementAdress: String,
+    city: String,
+    zipCode: Number,
+    numberTel: Number,
 
     // PROFESSIONAL FORM
-    currentPost :{
+    currentPost: {
         type: String,
-        required: [true, "Le complément d'adresse est optionnel"],
+        required: [true, "Le poste actuel est requis"],
         validate: {
             validator: function (v) {
             },
-            message: ""
+            message: "Ce champ est obligatoire. Veuillez entrer un mot de passe."
         }
     },
-    workCertificates :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    workDescription :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    workPlace :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    workCity :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    workZipCode :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    workDisponibilityStart :{
-        type: Date,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    workDisponibilityEnd :{
-        type: Date,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    workUniqueNumber :{
-        type: Number,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    workPhoto :{
-        type: String,
-    },
+    workCertificates: String,
+    workDescription: String,
+    workPlace: String,
+    workCity: String,
+    workZipCode: String,
+    workDisponibilityStart: Date,
+    workDisponibilityEnd: Date,
+    workUniqueNumber: Number,
+    workPhoto: String,
 
-
-    // PATIENT FORM
-    pregTimePregnancy :{
-        type: Number,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    pregDateChild :{
-        type: Date,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    pregSymptoms :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    pregAntecedents :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    pregAllergies :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    pregMedicaments :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    pregProblems :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    pregBlood :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    pregEchography :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    pregSport :{
-        type: String,
-        required: [false, "Le complément d'adresse est optionnel"],
-        validate: {
-            validator: function (v) {
-            },
-            message: ""
-        }
-    },
-    
-
-    // bookCollection: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "books"
-    // }
+    pregTimePregnancy: Number,
+    pregDateChild: Date,
+    pregSymptoms: String,
+    pregAntecedents: String,
+    pregAllergies: String,
+    pregMedicaments: String,
+    pregProblems: String,
+    pregBlood: String,
+    pregEchography: String,
+    pregSport: String
 });
 
 

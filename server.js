@@ -2,11 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session')
 const userRouter = require('./routes/userRouter');
-
 require('dotenv').config();
 
 const app = express();
 
+app.use(express.json());
 app.use(express.static('./public'))
 app.use(session({
     saveUninitialized: true,
