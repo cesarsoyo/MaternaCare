@@ -20,7 +20,7 @@ const medicamentsSchema = new mongoose.Schema({
     // Forme du médicament
     medicQuantity: {
         type: String,
-        enum: ['Cpr.', 'Gel.', 'Susp.', 'Sol.', 'Pom.', 'Crème.', 'Gtt.', 'Inhale.', 'Compl.', 'Patch'],
+        enum: ['Cpr.', 'Gel.', 'Susp.', 'Sol.', 'Pom.', 'Crème.', 'Gtt.', 'Inhale.', 'Compl.', 'Patch.'],
     },
 
     // Fréquence d'administration

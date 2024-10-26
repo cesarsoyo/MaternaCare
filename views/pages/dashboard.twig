@@ -52,7 +52,7 @@
 						</div>
 					</div>
 
-					<div>
+					<div id="medicamentCard">
 						<div>
 							<img src="" alt="">
 						</div>
@@ -87,6 +87,10 @@ document.getElementById('year').textContent = `Year: ${year}`;
 // Add click event to the food card
 document.getElementById('foodCard').addEventListener('click', function () {
 window.location.href = 'addfood';
+});
+
+document.getElementById('medicamentCard').addEventListener('click', function () {
+window.location.href = 'addmedicaments';
 });
 	</script>
 {% endblock %}

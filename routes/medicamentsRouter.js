@@ -27,7 +27,7 @@ medicamentsRouter.get('/medicaments/:userId', async (req, res) => {
 });
 
 // Créer un nouveau médicament (POST)
-medicamentsRouter.post('/medicaments', async (req, res) => {
+medicamentsRouter.post('/addmedicaments', async (req, res) => {
     try {
         const newMedicament = new Medicine(req.body);  // Créer un nouveau médicament avec les données du corps de la requête
         const savedMedicament = await newMedicament.save();  // Enregistrer dans la base de données
@@ -37,4 +37,4 @@ medicamentsRouter.post('/medicaments', async (req, res) => {
     }
 });
 
-module.exports = medicamentRouter;
+module.exports = medicamentsRouter;
