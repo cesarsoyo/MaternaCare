@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session')
 const userRouter = require('./routes/userRouter');
+// const foodRouter = require('./routes/foodRouter');
 require('dotenv').config();
 
 const app = express();
@@ -25,3 +26,5 @@ app.listen(process.env.PORT, (err) => {
 })
 
 mongoose.connect(process.env.MONGO)
+.then(() => console.log('MongoDB connecté'))
+.catch((err) => console.error('Erreur lors de la connexion à MongoDB :', err));

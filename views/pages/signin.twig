@@ -1,95 +1,303 @@
 {% extends "../base.twig" %}
 
+{% block title %}
+	<title>{{title}}</title>
+{% endblock %}
+
 {% block main %}
 	<section>
 		<h2>Formulaire d'inscription</h2>
-		{# FORM INFO CONNEXION #}
-		<form action="/signin" method="POST">
-			<div>
-				<label for="name">Nom de famille</label>
-				<input type="text" name="name" id="name">
-			</div>
-			<div>
-				<label for="firstname">Prénom</label>
-				<input type="text" name="firstname" id="firstname">
-			</div>
-			<div>
-				<label for="email">Adresse mail</label>
-				<input type="text" name="email" id="email">
-			</div>
-			<div>
-				<label for="role">Rôle</label>
-				<input type="text" name="role" id="role">
-			</div>
-			<div>
-				<label for="password">Mot de passe</label>
-				<input type="password" name="password" id="password">
-			</div>
-			<div>
-				<label for="confirmPassword">Confirmez votre mot de passe</label>
-				<input type="password" name="confirmPassword" id="confirmPassword">
-			</div>
-			<div>
-				<p>1/3</p>
-				<button type="submit">=></button>
+		{# FORM 1 INFO CONNEXION #}
+		<form method="POST" action="/signin">
+			<article>
+				<h1>Inscription</h1>
+				<h2>Veuillez remplir vos informations de connexion</h2>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="name">Nom de famille*</label>
+					</div>
+					<input type="text" name="name" id="name" placeholder="Votre nom ici" required>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="firstname">Prénom*</label>
+					</div>
+					<input type="text" name="firstname" id="firstname" placeholder="" required>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="email">Adresse mail*</label>
+					</div>
+					<input type="text" name="email" id="email" required>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="role">Rôle*</label>
+					</div>
+					<select name="role" id="role" required>
+						<option value="patiente">Patiente</option>
+						<option value="médécin">Professionnel de la santé</option>
+					</select>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="password">Mot de passe*</label>
+					</div>
+					<input type="password" name="password" id="password" required>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="confirmPassword">Confirmez votre mot de passe*</label>
+					</div>
+					<input type="password" name="confirmPassword" id="confirmPassword" required>
+				</div>
+				<button type="submit">S'inscrire</button>
+			</article>
 
+			{# FORM 2 INFO PERSO #}
+			{# <article>
+				<h2>Veuillez remplir vos informations personnelles</h2>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="socialNumber">Numéro de sécurité social*</label>
+					</div>
+					<input type="number" name="socialNumber" id="socialNumber" required>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="name">Date de naissance*</label>
+					</div>
+					<input type="date" name="name" id="name" required>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="firstname">Adresse</label>
+					</div>
+					<input type="text" name="firstname" id="firstname" required>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="email">Complément de l'adresse</label>
+					</div>
+					<input type="text" name="email" id="email">
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="city">Ville</label>
+					</div>
+					<input type="text" name="city" id="city">
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="zipCode">Code Postal</label>
+					</div>
+					<input type="number" name="zipCode" id="zipCode">
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="numberTel">Numéro de téléphone*</label>
+					</div>
+					<input type="text" name="numberTel" id="numberTel">
+				</div>
+			</article> #}
+
+
+			{# FORM 3 INFO MEDICAL#}
+
+			{# <h2>Veuillez remplir vos informations médicales</h2>
+			<div>
+				<div>
+					<img src="" alt="">
+					<label for="pregTimePregnancy">Temps de grossesse</label>
+				</div>
+				<div>
+					<input type="number" name="pregTimePregnancy" id="pregTimePregnancy">
+					<p>
+						semaines
+					</p>
+				</div>
 			</div>
+			<div>
+				<div>
+					<img src="" alt="">
+					<label for="pregDateChild">Date prévue d'accouchement</label>
+				</div>
+				<input type="date" name="pregDateChild" id="pregDateChild">
+			</div>
+			<div>
+				<div>
+					<img src="" alt="">
+					<label for="pregSymptoms">Symptômes actuels</label>
+				</div>
+				<input type="text" name="pregSymptoms" id="pregSymptoms">
+			</div>
+			<div>
+				<div>
+					<img src="" alt="">
+					<label for="pregBackground">Antécédents médicaux</label>
+				</div>
+				<textarea name="pregBackground" id="pregBackground"></textarea>
+			</div>
+			<div>
+				<div>
+					<img src="" alt="">
+					<label for="pregAllergies">Allergies</label>
+				</div>
+				<input type="text" name="pregAllergies" id="pregAllergies">
+				<button>+ Ajouter une allergie</button>
+			</div>
+			<div>
+				<div>
+					<img src="" alt="">
+					<label for="pregMedicaments">Médicaments en cours</label>
+				</div>
+				<input type="text" name="pregMedicaments" id="pregMedicaments">
+				<button>+ Ajouter une médicament</button>
+			</div>
+			<div>
+				<div>
+					<img src="" alt="">
+					<label for="pregProblems">Complications antérieures</label>
+				</div>
+				<textarea name="pregProblems" id="pregProblems"></textarea>
+			</div>
+			<div>
+				<div>
+					<img src="" alt="">
+					<label for="pregBlood">Groupe sanguin</label>
+				</div>
+				<select name="pregBlood" id="pregBlood">
+					<option value="A+">A+</option>
+					<option value="A-">A-</option>
+					<option value="B+">B+</option>
+					<option value="B-">B-</option>
+					<option value="AB+">AB+</option>
+					<option value="AB-">AB-</option>
+					<option value="O+">O+</option>
+					<option value="O-">O-</option>
+				</select>
+			</div>
+			<div>
+				<div>
+					<img src="" alt="">
+					<label for="pregDocuments">Documents médicaux (échographies, analyses de laboratoire, etc.)</label>
+				</div>
+				<input
+				type="file" name="pregDocuments" id="pregDocuments" multiple>
+				<button>+ Ajouter une document</button>
+			</div>
+			<div>
+				<div>
+					<img src="" alt="">
+					<label for="pregSport">Activité physique</label>
+				</div>
+				<textarea name="pregSport" id="pregSport"></textarea>
+			</div>
+			<div>
+				<input type="checkbox" name="checkInfo" required>
+				<p>Vos informations personnelles seront utilisées uniquement dans le cadre de l'utilisation de l'application. Pour plus de détails sur la gestion de vos données, veuillez consulter
+					<a href="">politique de confidentialité</a>. 
+																																																																																Veuillez cocher la case pour accepter et continuer.</p>
+			</div>
+			<div>
+				<button type="submit">S'inscrire</button>
+			</div> #} 
+
 		</form>
 
-		{# FORM INFO PERSONNELLES #}
-		<form action="/signin" method="POST">
-			<div>
-				<label for="name">Date de naissance</label>
-				<input type="text" name="name" id="name">
-			</div>
-			<div>
-				<label for="firstname">Adresse</label>
-				<input type="text" name="firstname" id="firstname">
-			</div>
-			<div>
-				<label for="email">Adresse mail</label>
-				<input type="text" name="email" id="email">
-			</div>
-			<div>
-				<label for="role">Rôle</label>
-				<input type="text" name="role" id="role">
-			</div>
-			<div>
-				<label for="password">Mot de passe</label>
-				<input type="password" name="password" id="password">
-			</div>
-			<div>
-				<label for="confirmPassword">Confirmez votre mot de passe</label>
-				<input type="password" name="confirmPassword" id="confirmPassword">
-			</div>
-		</form>
+		{# FORM PROFESSIONAL #}
+		{# <form method="POST">
+			<article>
+				<h2></h2>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="workUniqueNumber">Numéro RPPS*</label>
+					</div>
+					<input type="number" name="workUniqueNumber" id="workUniqueNumber" required>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="workPosition">Poste actuel</label>
+					</div>
+					<input type="text" name="workPosition" id="workPosition">
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="workCertificates">Titres professionnels supplémentaires</label>
+					</div>
+					<input type="text" name="workCertificates" id="workCertificates">
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="workDescription">Description de vous-même</label>
+					</div>
+					<textarea name="workDescription" id="workDescription"></textarea>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="workPlace">Adresse du cabinet médical</label>
+					</div>
+					<input type="text" name="workPlace" id="workPlace">
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="workCity">Ville du cabinet médical</label>
+					</div>
+					<input type="text" name="workCity" id="workCity">
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="workZipCode">Code postal du cabinet médical</label>
+					</div>
+					<input type="number" name="workZipCode" id="workZipCode">
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<legend>Disponibilités</legend>
+					</div>
+					<div>
+						<label for="workDisponibilityStart">Entre
+						</label>
+						<input type="date" name="workDisponibilityStart" id="workDisponibilityStart">
 
-		{# FORM  #}
-		<form action="/signin" method="POST">
-			<div>
-				<label for="name">Date de naissance</label>
-				<input type="text" name="name" id="name">
-			</div>
-			<div>
-				<label for="firstname">Adresse</label>
-				<input type="text" name="firstname" id="firstname">
-			</div>
-			<div>
-				<label for="email">Adresse mail</label>
-				<input type="text" name="email" id="email">
-			</div>
-			<div>
-				<label for="role">Rôle</label>
-				<input type="text" name="role" id="role">
-			</div>
-			<div>
-				<label for="password">Mot de passe</label>
-				<input type="password" name="password" id="password">
-			</div>
-			<div>
-				<label for="confirmPassword">Confirmez votre mot de passe</label>
-				<input type="password" name="confirmPassword" id="confirmPassword">
-			</div>
-		</form>
+						<label for="workDisponibilityEnd">et
+						</label>
+						<input type="date" name="workDisponibilityEnd" id="workDisponibilityEnd">
+					</div>
+				</div>
+				<div>
+					<div>
+						<img src="" alt="">
+						<label for="workPhoto">Code postal du cabinet médical</label>
+					</div>
+					<input type="file" name="workPhoto" id="workPhoto">
+				</div>
+				<div>
+					<button type="submit">S'inscrire</button>
+				</div>
+			</article>
+
+		</form> #}
 	</section>
 {% endblock %}

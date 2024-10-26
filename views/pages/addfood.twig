@@ -1,0 +1,51 @@
+{% extends "../base.twig" %}
+
+{% block title %}
+	<title>{{title}}</title>
+{% endblock %}
+
+{% block main %}
+
+	<section></section>
+
+
+	<section>
+		<div>
+			<div>
+				<img src="" alt="">
+				<img src="" alt="">
+			</div>
+			<h3>Ajouter un repas</h3>
+		</div>
+		<form class="" method="POST" {% if food %} action="/foodupdate/{{food.id}}" {% else %} action="/addfood" {% endif %}>
+			<div>
+				<label for="mealType">Type de repas</label>
+				<input type="text" name="mealType" id="mealType" value="{{food.mealType}}" required>
+				{% if error %}
+					<p>{{error.mealType}}</p>
+				{% endif %}
+
+			</div>
+			<div>
+				<label for="mealTime">Heure de repas</label>
+				<input type="date" name="mealTime" id="mealTime" value="{{user.function}}">
+			</div>
+
+			<div>
+				<label for="mealTitle">Titre du plat</label>
+				<input type="number" name="mealTitle" id="mealTitle" value="{{food.mealTitle}}" required>
+				{% if error %}
+					<p>{{error.mealTitle}}</p>
+				{% endif %}
+			</div>
+
+			<div>
+				<label for="mealTitle">Contenu</label>
+				<input type="number" name="mealTitle" id="mealTitle" value="{{user.blame}}">
+			</div>
+
+			<button id="add-btn" type="submit">Enregistrer</button>
+		</form>
+	</section>
+
+</section>{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "../base.twig" %}
+
+{% block title %}
+	<title>{{title}}</title>
+{% endblock %}
+
+{% block main %}
+
+	<section class="cards-container">
+		<div>
+			<h3>Mes employés</h3>
+		</div>
+		<div class="row-container">
+			{% if users %}
+				{% for user in users %}
+					<div class="cards-user">
+						<article class="card">
+							<h4>
+								Nom :
+								{{user.name}}
+							</h4>
+							<div id="photo-container">
+								<img src="./assets/media/{{user.photo}}" alt="Photo d'employé">
+							</div>
+							<p>
+								Fonction :
+								{{user.function}}
+							</p>
+							<p>
+								Nombre de blâmes :
+								{{user.blame}}
+							</p>
+							<form action="/increaseBlame/{{user.id}}" method="post">
+								<button class="add-blame-btn">+1 blâme</button>
+							</form>
+							<div class="links-card-user">
+								<a id="update-btn" href="./userupdate/{{user.id}}">Modifier l'employé</a>
+								<a id="delete-btn" href="./userdelete/{{user.id}}">Supprimer l'employé</a>
+							</div>
+						</article>
+					</div>
+				{% endfor %}
+			{% else %}
+				<p>Entrez un nouveau employé, il y en a pas...</p>
+			{% endif %}
+		</div>
+	</section>
+
+{% endblock %}
