@@ -6,44 +6,87 @@
 
 {% block main %}
 
-	<section class="cards-container">
+	<section class="">
+		<h1>Prête à embrasser cette nouvelle étape ?</h1>
 		<div>
-			<h3>Mes employés</h3>
+			<p id="day"></p>
+			<p id="month"></p>
+			<p id="year"></p>
 		</div>
-		<div class="row-container">
-			{% if users %}
-				{% for user in users %}
-					<div class="cards-user">
-						<article class="card">
-							<h4>
-								Nom :
-								{{user.name}}
-							</h4>
-							<div id="photo-container">
-								<img src="./assets/media/{{user.photo}}" alt="Photo d'employé">
-							</div>
-							<p>
-								Fonction :
-								{{user.function}}
-							</p>
-							<p>
-								Nombre de blâmes :
-								{{user.blame}}
-							</p>
-							<form action="/increaseBlame/{{user.id}}" method="post">
-								<button class="add-blame-btn">+1 blâme</button>
-							</form>
-							<div class="links-card-user">
-								<a id="update-btn" href="./userupdate/{{user.id}}">Modifier l'employé</a>
-								<a id="delete-btn" href="./userdelete/{{user.id}}">Supprimer l'employé</a>
-							</div>
-						</article>
+
+		<div>
+			<div>
+				<div>
+					<img src="" alt="">
+				</div>
+				<div>
+					<h2>Détails sur ton petit trésor :</h2>
+				</div>
+			</div>
+			<div>
+				<div>
+					<p></p>
+					<p>Kg</p>
+				</div>
+				<div>
+					<p></p>
+					<p>cm</p>
+				</div>
+				<div>
+					<p></p>
+					<p>semaines</p>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<h2>Outils</h2>
+			<div>
+				<div>
+					<div class="outils-cards" id="foodCard">
+						<div>
+							<img src="" alt="">
+						</div>
+						<div>
+							<p>Alimentation</p>
+						</div>
 					</div>
-				{% endfor %}
-			{% else %}
-				<p>Entrez un nouveau employé, il y en a pas...</p>
-			{% endif %}
+
+					<div>
+						<div>
+							<img src="" alt="">
+						</div>
+						<div>
+							<p>Médicaments</p>
+						</div>
+					</div>
+				</div>
+
+
+				<div></div>
+			</div>
 		</div>
+
 	</section>
 
+
+	<script>
+		// Get the current date
+const currentDate = new Date();
+
+// Get the day, month, and year
+const day = currentDate.getDate();
+const month = currentDate.getMonth() + 1; // Months are 0-11, so we add 1
+const year = currentDate.getFullYear();
+
+// Display the date in the HTML
+document.getElementById('day').textContent = `Day: ${day}`;
+document.getElementById('month').textContent = `Month: ${month}`;
+document.getElementById('year').textContent = `Year: ${year}`;
+
+// Add click event to the food card
+document.getElementById('foodCard').addEventListener('click', function () {
+window.location.href = 'addfood';
+});
+	</script>
 {% endblock %}

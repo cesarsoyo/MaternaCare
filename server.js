@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session')
 const userRouter = require('./routes/userRouter');
-// const foodRouter = require('./routes/foodRouter');
+const foodRouter = require('./routes/foodRouter');
 require('dotenv').config();
 
 const app = express();
@@ -16,6 +16,7 @@ app.use(session({
 }))
 app.use(express.urlencoded({ extended: true }))
 app.use(userRouter)
+app.use(foodRouter)
 
 app.listen(process.env.PORT, (err) => {
     if (err) {

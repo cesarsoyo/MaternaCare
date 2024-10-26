@@ -10,13 +10,13 @@ const foodSchema = new mongoose.Schema({
     // Type de repas
     mealType: {
         type: String,
-        enum: ['Entrée', 'Plat principal', 'Dessert', 'Boisson'],  // Seules ces valeurs sont autorisées
+        enum: ['entree', 'plat_principal', 'dessert', 'boisson'],  // Seules ces valeurs sont autorisées
         required: true
     },
 
     // Heure à laquelle on mange
     mealTime: {
-        type: Date,
+        type: String,
     },
 
     // Titre du plat
@@ -32,10 +32,12 @@ const foodSchema = new mongoose.Schema({
 
     mealContentType: {
         type: String,
+        enum: ['viande', 'cereales', 'legumineuses', 'fruits', 'legumes', 'poisson', 'produits_laitiers', 'boissons', 'graines_oleagineuses', 'sucreries']
     },
 
     mealContentQuantity: {
         type: String,
+        enum: ['kg', 'g', 'oz', 'cuil', 'cuil_a_s', 'cuil_a_c', 'L', 'dL', 'cL', 'mL', 'pintes', 'quart', 'tass', 'u']
     },
 
     // Préparation du plat

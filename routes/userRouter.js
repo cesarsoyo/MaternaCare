@@ -69,6 +69,10 @@ userRouter.get('/logout', (req, res) => {
 })
 
 
+userRouter.get('/addfood', (req, res) => {
+    res.render("pages/addfood.twig") // Rendu de la page de confidentialité
+});
+
 // Route GET pour afficher la page de confidentialité
 userRouter.get('/privacypg', (req, res) => {
     res.render("pages/privacypg.twig") // Rendu de la page de confidentialité

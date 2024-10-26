@@ -6,46 +6,135 @@
 
 {% block main %}
 
-	<section></section>
+	{# <section class="">
+		<div>
+			<h2>Tes repas du jour</h2>
+		</div>
+		<div class="">
+			{% if foods %}
+				{% for food in foods %}
+
+					<div class="">
+						<article>
+							<p>Type de repas :
+								{{ food.mealType }}</p>
+							<p>Heure de repas :
+								{{ food.mealTime }}</p>
+							<p>Titre du plat :
+								{{ food.mealTitle }}</p>
+							<p>Contenu :
+								{{ food.mealContentTitle }},
+								{{ food.mealContentType }},
+								{{ food.mealContentQuantity }}</p>
+							<p>Préparation :
+								{{ food.mealPreparation }}</p>
+							<p>Commentaires :
+								{{ food.mealComments }}</p>
+						</article>
+
+						{# <div class="links-card-user">
+														<a id="update-btn" href="./userupdate/{{user.id}}">Modifier l'employé</a>
+														<a id="delete-btn" href="./userdelete/{{user.id}}">Supprimer l'employé</a>
+													</div> #}
+					{# </article>
+				</div>
+			{% endfor %}
+		{% else %}
+			<p>Entrez un nouveau plat, il y en a pas...</p>
+		{% endif %}
+	</div>
+</section> #}
 
 
-	<section>
+<section>
+	<div>
+		<div>
+			<img src="" alt="">
+			<img src="" alt="">
+		</div>
+		<h3>Ajouter un repas</h3>
+	</div>
+	<form class="" method="POST" action="/addfood">
+		<div>
+			<label for="mealType">Type de repas :</label>
+			<select name="mealType">
+				<option value="entree">Entrée</option>
+				<option value="plat_principal">Plat principal</option>
+				<option value="dessert">Dessert</option>
+				<option value="boisson">Boisson</option>
+			</select>
+			{% if error %}
+				<p>{{error.mealType}}</p>
+			{% endif %}
+
+		</div>
+		<div>
+			<label for="mealTime">Heure de repas :</label>
+			<input type="time" name="mealTime" id="mealTime" value="{{food.mealTime}}">
+		</div>
+
+		<div>
+			<label for="mealTitle">Titre du plat :</label>
+			<input type="text" name="mealTitle" id="mealTitle" value="{{food.mealTitle}}" required>
+			{% if error %}
+				<p>{{error.mealTitle}}</p>
+			{% endif %}
+		</div>
+
 		<div>
 			<div>
-				<img src="" alt="">
-				<img src="" alt="">
+				<label for="mealContentTitle">Contenu :</label>
+				<input type="text" name="mealContentTitle" id="mealContentTitle" value="{{food.mealContentTitle}}">
 			</div>
-			<h3>Ajouter un repas</h3>
+			<div>
+				<select name="mealContentType" id="mealContentType">
+					<option value="viande">Viande</option>
+					<option value="cereales">Céréales</option>
+					<option value="legumineuses">Légumineuses</option>
+					<option value="fruits">Fruits</option>
+					<option value="legumes">Légumes</option>
+					<option value="poisson">Poisson</option>
+					<option value="produits_laitiers">Produits laitiers</option>
+					<option value="boissons">Boissons</option>
+					<option value="graines_oleagineuses">Graines oléagineuses</option>
+					<option value="sucreries">Sucreries</option>
+				</select>
+			</div>
+			<div>
+				<select name="mealContentQuantity">
+					<option value="kg">kg</option>
+					<option value="g">g</option>
+					<option value="oz">oz</option>
+					<option value="cuil">cuil.</option>
+					<option value="cuil_a_s">cuil. à s.</option>
+					<option value="cuil_a_c">cuil. à c.</option>
+					<option value="L">L</option>
+					<option value="dL">dL</option>
+					<option value="cL">cL</option>
+					<option value="mL">mL</option>
+					<option value="pintes">pintes</option>
+					<option value="quart">quart</option>
+					<option value="tass">tass.</option>
+					<option value="u">u.</option>
+				</select>
+			</div>
 		</div>
-		<form class="" method="POST" {% if food %} action="/foodupdate/{{food.id}}" {% else %} action="/addfood" {% endif %}>
-			<div>
-				<label for="mealType">Type de repas</label>
-				<input type="text" name="mealType" id="mealType" value="{{food.mealType}}" required>
-				{% if error %}
-					<p>{{error.mealType}}</p>
-				{% endif %}
 
-			</div>
-			<div>
-				<label for="mealTime">Heure de repas</label>
-				<input type="date" name="mealTime" id="mealTime" value="{{user.function}}">
-			</div>
+		<div>
+			<label for="mealPreparation">Préparation :</label>
+			<textarea name="mealPreparation" id="mealPreparation">{{ food.mealTime }}</textarea>
+		</div>
 
-			<div>
-				<label for="mealTitle">Titre du plat</label>
-				<input type="number" name="mealTitle" id="mealTitle" value="{{food.mealTitle}}" required>
-				{% if error %}
-					<p>{{error.mealTitle}}</p>
-				{% endif %}
-			</div>
+		<div>
+			<label for="mealComments">Commentaires :</label>
+			<textarea name="mealComments" id="mealComments">{{ food.mealTime }}</textarea>
+		</div>
 
-			<div>
-				<label for="mealTitle">Contenu</label>
-				<input type="number" name="mealTitle" id="mealTitle" value="{{user.blame}}">
-			</div>
+		<button id="" type="submit">Enregistrer</button>
+	</form>
+</section>
 
-			<button id="add-btn" type="submit">Enregistrer</button>
-		</form>
-	</section>
 
-</section>{% endblock %}
+<script>
+	console.log({{ food }});
+</script>{% endblock %}
