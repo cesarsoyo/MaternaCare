@@ -1,0 +1,59 @@
+{% extends "../base.twig" %}
+
+{% block styles %}
+	<link rel="stylesheet" href="./assets/css/contact.css">
+{% endblock %}
+
+{% block title %}
+	<title>Service Client</title>
+{% endblock %}
+
+{% block main %}
+	<article class="main-container">
+		<p class="page-title">Service Client</p>
+		<p id="welcome-text">Coucou
+			<span id="name-text">{{user.firstname}}</span>
+		</p>
+		<h1>Besoin d'aide ?</h1>
+
+		<div>
+			<h2>Service Client MaternaCare - Lyon</h2>
+			<p>
+				<strong>Adresse :</strong>
+				123 Rue de l'Hôpital, 69003 Lyon, France</p>
+			<p>
+				<strong>Disponibilités :</strong>
+				Du lundi au vendredi, de 9h00 à 18h00 (CET)</p>
+			<p>
+				<strong>Téléphone :</strong>
+				+33 4 78 00 00 00</p>
+			<p>
+				<strong>Fax :</strong>
+				+33 4 78 00 00 01</p>
+			<p>
+				<strong>Email :</strong>
+				<a href="mailto:contact@maternacare.fr">contact@maternacare.fr</a>
+			</p>
+		</div>
+
+		<div>
+			<h2>Service Client MaternaCare - Lille</h2>
+			<p>
+				<strong>Adresse :</strong>
+				45 Avenue de la Santé, 59000 Lille, France</p>
+			<p>
+				<strong>Disponibilités :</strong>
+				Du lundi au vendredi, de 8h30 à 17h30 (CET)</p>
+			<p>
+				<strong>Téléphone :</strong>
+				+33 3 20 00 00 00</p>
+			<p>
+				<strong>Fax :</strong>
+				+33 3 20 00 00 01</p>
+			<p>
+				<strong>Email :</strong>
+				<a href="mailto:contact@maternacare.fr">hello@maternacare.fr</a>
+			</p>
+		</div>
+	</article>
+{% endblock %}

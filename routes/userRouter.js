@@ -63,16 +63,21 @@ userRouter.get('/dashboard', authGuard, async (req, res) => {
     }) // Rendu de la page dashboard
 })
 
+
+
 // Route GET pour déconnecter l'utilisateur
 userRouter.get('/logout', (req, res) => {
     req.session.destroy() // Destruction de la session
     res.redirect('/login') // Redirection vers la page de connexion
 })
 
+userRouter.get('/addfood', authGuard, async (req, res) => {
+    const user = await userModel.findById(req.session.user._id)
+    res.render('pages/addfood.twig', {
+        user: req.session.user
+    }) 
+})
 
-userRouter.get('/addfood', (req, res) => {
-    res.render("pages/addfood.twig") // Rendu de la page de confidentialité
-});
 
 userRouter.get('/addmedicaments', (req, res) => {
     res.render("pages/addmedicaments.twig") // Rendu de la page de confidentialité
@@ -86,6 +91,18 @@ userRouter.get('/privacypg', (req, res) => {
 // Route GET pour afficher la page de sécurité
 userRouter.get('/securitypg', (req, res) => {
     res.render("pages/securitypg.twig") // Rendu de la page de sécurité
+});
+
+userRouter.get('/hospitals', (req, res) => {
+    res.render("pages/hospitals.twig") // Rendu de la page de sécurité
+});
+
+userRouter.get('/doctors', (req, res) => {
+    res.render("pages/doctors.twig") // Rendu de la page de sécurité
+});
+
+userRouter.get('/contact', (req, res) => {
+    res.render("pages/contact.twig") // Rendu de la page de sécurité
 });
 
 // userRouter.get('/accueil', (req, res) => {

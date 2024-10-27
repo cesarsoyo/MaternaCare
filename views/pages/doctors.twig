@@ -1,0 +1,140 @@
+{% extends "../base.twig" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="./assets/css/doctors.css">
+{% endblock %}
+
+{% block title %}
+    <title>Médecins</title>
+{% endblock %}
+
+{% block main %}
+    <article class="main-container">
+        <p class="page-title">Médecins</p>
+        <p id="welcome-text">Coucou
+            <span id="name-text">{{user.firstname}}</span>
+        </p>
+        <h1>Informations sur les médecins</h1>
+
+        <div>
+            <h2>Mme. Marie Lefèvre</h2>
+            <p><strong>Spécialité :</strong> Gynécologie-obstétrique</p>
+            <p><strong>Cabinet :</strong> 15 Rue Paradis, Marseille</p>
+            <p><strong>Téléphone :</strong> +33 4 91 54 32 10</p>
+            <p><strong>Horaires :</strong> Lundi à vendredi, de 9h00 à 17h00</p>
+        </div>
+
+        <div>
+            <h2>M. Jean Dupont</h2>
+            <p><strong>Spécialité :</strong> Pédiatrie</p>
+            <p><strong>Cabinet :</strong> 32 Avenue du Prado, Marseille</p>
+            <p><strong>Téléphone :</strong> +33 4 91 67 89 45</p>
+            <p><strong>Horaires :</strong> Lundi à vendredi, de 8h30 à 16h30</p>
+        </div>
+
+        <div>
+            <h2>Mme. Sophie Martin</h2>
+            <p><strong>Spécialité :</strong> Sage-femme</p>
+            <p><strong>Cabinet :</strong> 10 Rue des Trois Mages, Marseille</p>
+            <p><strong>Téléphone :</strong> +33 4 91 23 45 67</p>
+            <p><strong>Horaires :</strong> Mardi à samedi, de 10h00 à 18h00</p>
+        </div>
+
+        <div>
+            <h2>M. Paul Girard</h2>
+            <p><strong>Spécialité :</strong> Médecine générale</p>
+            <p><strong>Cabinet :</strong> 5 Boulevard Michelet, Marseille</p>
+            <p><strong>Téléphone :</strong> +33 4 91 85 76 54</p>
+            <p><strong>Horaires :</strong> Lundi à vendredi, de 9h00 à 19h00</p>
+        </div>
+
+        <div>
+            <h2>Mme. Clara Fontaine</h2>
+            <p><strong>Spécialité :</strong> Endocrinologie</p>
+            <p><strong>Cabinet :</strong> 18 Rue de la République, Marseille</p>
+            <p><strong>Téléphone :</strong> +33 4 91 78 56 45</p>
+            <p><strong>Horaires :</strong> Lundi à jeudi, de 8h00 à 14h00</p>
+        </div>
+
+        <div>
+            <h2>M. Pierre Delorme</h2>
+            <p><strong>Spécialité :</strong> Gynécologie</p>
+            <p><strong>Cabinet :</strong> 2 Avenue de la Timone, Marseille</p>
+            <p><strong>Téléphone :</strong> +33 4 91 56 32 18</p>
+            <p><strong>Horaires :</strong> Mardi à vendredi, de 9h00 à 16h00</p>
+        </div>
+
+        <div>
+            <h2>Mme. Isabelle Marchand</h2>
+            <p><strong>Spécialité :</strong> Pédiatrie</p>
+            <p><strong>Cabinet :</strong> 25 Cours Mirabeau, Aix-en-Provence</p>
+            <p><strong>Téléphone :</strong> +33 4 42 67 89 01</p>
+            <p><strong>Horaires :</strong> Lundi à vendredi, de 8h30 à 17h30</p>
+        </div>
+
+        <div>
+            <h2>M. Michel Petit</h2>
+            <p><strong>Spécialité :</strong> Sage-femme</p>
+            <p><strong>Cabinet :</strong> 9 Rue Thiers, Aix-en-Provence</p>
+            <p><strong>Téléphone :</strong> +33 4 42 34 56 78</p>
+            <p><strong>Horaires :</strong> Mardi à samedi, de 9h00 à 17h00</p>
+        </div>
+
+        <div>
+            <h2>Mme. Élise Leblanc</h2>
+            <p><strong>Spécialité :</strong> Gynécologie</p>
+            <p><strong>Cabinet :</strong> 11 Rue Espariat, Aix-en-Provence</p>
+            <p><strong>Téléphone :</strong> +33 4 42 88 77 66</p>
+            <p><strong>Horaires :</strong> Lundi à vendredi, de 9h00 à 18h00</p>
+        </div>
+
+        <div>
+            <h2>M. Antoine Durand</h2>
+            <p><strong>Spécialité :</strong> Médecine générale</p>
+            <p><strong>Cabinet :</strong> 3 Rue de l’Opéra, Marseille</p>
+            <p><strong>Téléphone :</strong> +33 4 91 45 78 23</p>
+            <p><strong>Horaires :</strong> Lundi à jeudi, de 8h30 à 17h30</p>
+        </div>
+
+        <div>
+            <h2>Mme. Laura Bernard</h2>
+            <p><strong>Spécialité :</strong> Endocrinologie</p>
+            <p><strong>Cabinet :</strong> 6 Rue Saint-Ferréol, Marseille</p>
+            <p><strong>Téléphone :</strong> +33 4 91 32 54 78</p>
+            <p><strong>Horaires :</strong> Lundi à vendredi, de 9h00 à 16h30</p>
+        </div>
+
+        <div>
+            <h2>M. Thomas Richard</h2>
+            <p><strong>Spécialité :</strong> Gynécologie-obstétrique</p>
+            <p><strong>Cabinet :</strong> 20 Rue Sainte, Marseille</p>
+            <p><strong>Téléphone :</strong> +33 4 91 22 11 45</p>
+            <p><strong>Horaires :</strong> Lundi à vendredi, de 8h00 à 17h00</p>
+        </div>
+
+        <div>
+            <h2>Mme. Camille Dufour</h2>
+            <p><strong>Spécialité :</strong> Médecine générale</p>
+            <p><strong>Cabinet :</strong> 4 Rue Gaston de Saporta, Aix-en-Provence</p>
+            <p><strong>Téléphone :</strong> +33 4 42 12 34 56</p>
+            <p><strong>Horaires :</strong> Mardi à samedi, de 9h00 à 17h30</p>
+        </div>
+
+        <div>
+            <h2>M. Philippe Moreau</h2>
+            <p><strong>Spécialité :</strong> Gynécologie</p>
+            <p><strong>Cabinet :</strong> 17 Rue d'Italie, Aix-en-Provence</p>
+            <p><strong>Téléphone :</strong> +33 4 42 98 76 54</p>
+            <p><strong>Horaires :</strong> Lundi à vendredi, de 9h00 à 18h00</p>
+        </div>
+
+        <div>
+            <h2>Mme. Amélie Laurent</h2>
+            <p><strong>Spécialité :</strong> Sage-femme</p>
+            <p><strong>Cabinet :</strong> 8 Avenue Victor Hugo, Aix-en-Provence</p>
+            <p><strong>Téléphone :</strong> +33 4 42 77 88 99</p>
+            <p><strong>Horaires :</strong> Mardi à vendredi, de 10h00 à 18h00</p>
+        </div>
+
+    </article>
+{% endblock %}

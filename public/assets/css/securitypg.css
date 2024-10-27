@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@media (max-width: 450px) and (max-height: 930px) {
+    * {
+        font-family: 'Montserrat';
+        color: #264559;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+
+    }
+
+    html {
+        background-color: #F3FBE8;
+    }
+
+    .main-container {
+        padding: 20px 20px 40px 20px;
+        width: 90vw;
+    }
+
+    .main-container ul {
+        list-style-position: inside;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+
+    .main-container li {
+        text-align: right;
+        padding-left: 0;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .main-container p {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .title-h2 {
+        text-align: left;
+        font-weight: 800;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .main-container h3 {
+        text-align: left;
+        font-weight: 700;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .main-container b {
+        font-weight: 700;
+    }
+
+    header {
+        z-index: 1;
+    }
+
+    .main-container {
+        z-index: -2;
+    }
+
+    .page-title {
+        font-size: 12px;
+        font-weight: 800;
+        margin-top: -27px;
+        color: #264559;
+    }
+
+    #welcome-text {
+        font-size: 12px;
+        text-align: left;
+        color: #264559;
+        margin-top: 28px;
+    }
+
+    #name-text {
+        font-weight: 800;
+        color: #264559;
+
+    }
+
+    h1 {
+        font-size: 24px;
+        font-weight: 800;
+        text-align: left;
+        width: 100%;
+        color: #264559;
+        margin-bottom: 20px;
+        margin-top: 14px;
+    }
+
+}

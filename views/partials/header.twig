@@ -9,7 +9,7 @@
 		</a>
 		<ul id="menu" class="menu">
 			<a href="#" class="image-link">
-				<li><img src="/assets/media/icons/icon_dashboard.svg" alt="Icône dashboard" class="menu-image">
+				<li><img src="/assets/media/icons/icon_dashboard.svg" alt="Icône dashboard" class="menu-image" id="dash-icon">
 				</li>
 			</a>
 			<a href="#" class="image-link">
@@ -101,6 +101,10 @@
 		function closeNav() {
 			sidenav.classList.remove('active');
 		}
+
+		document.getElementById('dash-icon').addEventListener('click', function () {
+			window.location.href = 'dashboard';
+		});
 
 		document.getElementById('food-icon').addEventListener('click', function () {
 			window.location.href = 'addfood';
