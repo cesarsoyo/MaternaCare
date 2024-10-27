@@ -57,7 +57,8 @@ userRouter.post('/login', async (req, res) => {
 userRouter.get('/dashboard', authGuard, async (req, res) => {
     const user = await userModel.findById(req.session.user._id)
     // .populate({ path: "patientsCollection" }) // Récupération de l'utilisateur et de ses patients
-    res.render('pages/dashboard.twig', { user: req.session.user
+    res.render('pages/dashboard.twig', {
+        user: req.session.user
         // , books: user.patientsCollection 
     }) // Rendu de la page dashboard
 })
@@ -86,6 +87,15 @@ userRouter.get('/privacypg', (req, res) => {
 userRouter.get('/securitypg', (req, res) => {
     res.render("pages/securitypg.twig") // Rendu de la page de sécurité
 });
+
+// userRouter.get('/accueil', (req, res) => {
+//     res.render("./accueil.html")
+// });
+
+userRouter.get('', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'accueil.html'));
+});
+
 
 // Exportation du routeur
 module.exports = userRouter

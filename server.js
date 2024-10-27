@@ -5,11 +5,14 @@ const userRouter = require('./routes/userRouter');
 const foodRouter = require('./routes/foodRouter');
 const medicamentsRouter = require('./routes/medicamentsRouter');
 require('dotenv').config();
+const path = require('path');
+
 
 const app = express();
 
 app.use(express.json());
-app.use(express.static('./public'))
+// app.use(express.static('./public'))
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     saveUninitialized: true,
     resave: true,
@@ -20,6 +23,14 @@ app.use(userRouter)
 app.use(foodRouter)
 app.use(medicamentsRouter)
 
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'twig');
+app.get('/accueil', (req, res) => {
+res.sendFile(path.join(__dirname, 'views', 'accueil.html')); // Envía el archivo HTML directamente
+});
+
+
 app.listen(process.env.PORT, (err) => {
     if (err) {
         console.log(err);
@@ -29,5 +40,5 @@ app.listen(process.env.PORT, (err) => {
 })
 
 mongoose.connect(process.env.MONGO)
-.then(() => console.log('MongoDB connecté'))
-.catch((err) => console.error('Erreur lors de la connexion à MongoDB :', err));
+    .then(() => console.log('MongoDB connecté'))
+    .catch((err) => console.error('Erreur lors de la connexion à MongoDB :', err));

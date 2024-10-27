@@ -1,45 +1,51 @@
 {% extends "../base.twig" %}
 
+{% block styles %}
+	<link rel="stylesheet" href="./assets/css/dashboard.css">
+{% endblock %}
+
 {% block title %}
-	<title>{{title}}</title>
+	<title>Tableau de bord</title>
 {% endblock %}
 
 {% block main %}
 
-	<section class="">
+	<section class="main-container">
+		<p class="page-title">Tableau de bord</p>
+		<p id="welcome-text">Coucou
+			<span id="name-text">{{user.firstname}}</span>
+		</p>
 		<h1>Prête à embrasser cette nouvelle étape ?</h1>
-		<div>
-			<p id="day"></p>
-			<p id="month"></p>
-			<p id="year"></p>
-		</div>
+		<div id="info"></div>
 
-		<div>
-			<div>
-				<div>
-					<img src="" alt="">
+
+		<div class="info-baby-container">
+			<div class="title-info">
+				<div class="img-info">
+					<img src="./assets/media/icons/icon_bottlemilk.svg" alt="Icône d'une tétine">
 				</div>
 				<div>
 					<h2>Détails sur ton petit trésor :</h2>
 				</div>
 			</div>
-			<div>
-				<div>
-					<p></p>
-					<p>Kg</p>
+
+			<div class='info-container'>
+				<div class="text-info weight">
+					<p class="numb">1.4</p>
+					<p class="units">Kg</p>
 				</div>
-				<div>
-					<p></p>
-					<p>cm</p>
+				<div class="text-info size">
+					<p class="numb">41</p>
+					<p class="units">cm</p>
 				</div>
-				<div>
-					<p></p>
-					<p>semaines</p>
+				<div class="text-info weeks">
+					<p class="numb">31</p>
+					<p class="units">semaines</p>
 				</div>
 			</div>
 		</div>
 
-		<div>
+		<div class="tools-container">
 			<h2>Outils</h2>
 			<div>
 				<div>
@@ -71,20 +77,93 @@
 
 
 	<script>
-		// Get the current date
-const currentDate = new Date();
 
-// Get the day, month, and year
-const day = currentDate.getDate();
-const month = currentDate.getMonth() + 1; // Months are 0-11, so we add 1
-const year = currentDate.getFullYear();
+		const currentDate = new Date();
 
-// Display the date in the HTML
-document.getElementById('day').textContent = `Day: ${day}`;
-document.getElementById('month').textContent = `Month: ${month}`;
-document.getElementById('year').textContent = `Year: ${year}`;
+function showDaysAround(numberOfDays) {
+const daysToShow = [];
+for (let i = numberOfDays; i > 0; i--) {
+const pastDate = new Date();
+pastDate.setDate(currentDate.getDate() - i);
+daysToShow.push(pastDate);
+}
 
-// Add click event to the food card
+daysToShow.push(currentDate);
+
+for (let i = 1; i <= numberOfDays; i++) {
+const futureDate = new Date();
+futureDate.setDate(currentDate.getDate() + i);
+daysToShow.push(futureDate);
+}
+
+const dateCardsContainer = document.createElement('div');
+dateCardsContainer.className = 'date-cards-container';
+
+daysToShow.forEach((date) => {
+const dateCard = document.createElement('div');
+dateCard.className = 'date-card';
+if (date.toDateString() === currentDate.toDateString()) {
+dateCard.id = 'current-date-card';
+}
+
+const dayName = daysOfWeek[date.getDay()];
+const dayNumber = date.getDate();
+
+const dayParagraph = document.createElement('p');
+dayParagraph.textContent = dayName;
+dayParagraph.className = 'day';
+
+
+const dateParagraph = document.createElement('p');
+dateParagraph.textContent = dayNumber;
+dateParagraph.className = 'date';
+
+
+dateCard.appendChild(dayParagraph);
+dateCard.appendChild(dateParagraph);
+dateCardsContainer.appendChild(dateCard);
+});
+
+const infoContainer = document.getElementById('info');
+infoContainer.appendChild(infoDateContainer);
+infoContainer.appendChild(dateCardsContainer);
+}
+
+const daysOfWeek = [
+"Dimanche",
+"Lundi",
+"Mardi",
+"Mercredi",
+"Jeudi",
+"Vendredi",
+"Samedi"
+];
+const months = [
+"Janvier",
+"Février",
+"Mars",
+"Avril",
+"Mai",
+"Juin",
+"Juillet",
+"Août",
+"Septembre",
+"Octobre",
+"Novembre",
+"Décembre"
+];
+const monthName = months[currentDate.getMonth()];
+
+const infoDateContainer = document.createElement('div');
+infoDateContainer.id = 'info-date';
+infoDateContainer.textContent = monthName;
+
+const infoContainer = document.getElementById('info');
+infoContainer.appendChild(infoDateContainer);
+
+showDaysAround(2);
+
+
 document.getElementById('foodCard').addEventListener('click', function () {
 window.location.href = 'addfood';
 });

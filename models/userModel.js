@@ -60,17 +60,17 @@ const userSchema = new mongoose.Schema({
             message: "Ce champ est obligatoire. Veuillez entrer un mot de passe."
         }
     },
-    confirmPassword: {
-        type: String,
-        required: [true, "La confirmation du mot de passe est requis"],
-        validate: {
-            // Validation de la confirmation du mot de passe
-            validator: function (v) {
-                return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(v);
-            },
-            message: "Les mots de passe ne correspondent pas. Veuillez vérifier et confirmer à nouveau votre mot de passe."
-        }
-    },
+    // confirmPassword: {
+    //     type: String,
+    //     required: [true, "La confirmation du mot de passe est requis"],
+    //     validate: {
+    //         // Validation de la confirmation du mot de passe
+    //         validator: function (v) {
+    //             return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(v);
+    //         },
+    //         message: "Les mots de passe ne correspondent pas. Veuillez vérifier et confirmer à nouveau votre mot de passe."
+    //     }
+    // },
 
 
 

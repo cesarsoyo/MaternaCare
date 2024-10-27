@@ -1,107 +1,153 @@
 {% extends "../base.twig" %}
 
+{% block styles %}
+	<link rel="stylesheet" href="./assets/css/privacypg.css">
+{% endblock %}
+
+{% block title %}
+	<title>Politique de confidentialité</title>
+{% endblock %}
+
 {% block main %}
 
-	<article>
+	<article class="main-container">
+		<p class="page-title">Politique de confidentialité</p>
 		<h1>Politique de confidentialité</h1>
 		<p>Dans le cadre de l’utilisation de notre application dédiée aux femmes enceintes, la protection de vos données personnelles est une priorité absolue. Nous nous engageons à respecter la vie privée de nos utilisatrices et à assurer la sécurité des informations sensibles que vous partagez avec nous. Cette politique de confidentialité a pour objectif de vous expliquer en détail comment nous collectons, utilisons, protégeons et partageons vos données personnelles, en conformité avec le Règlement Général sur la Protection des Données (RGPD) et autres lois applicables.
 
-			<h2>
-				1. Quelles données personnelles collectons-nous ?
-			</h2>
+			<h2 class="title-h2">
+				1. Quelles données personnelles collectons-nous ?</h2>
+		</p>
+		<p>
 			Lorsque vous utilisez notre application, nous sommes susceptibles de collecter plusieurs types de données personnelles :
-			<ul>
-				<li>
-					<b>Données d’identification :</b>
-					telles que votre nom, prénom, adresse e-mail et numéro de téléphone, que vous renseignez lors de la création de votre compte.</li>
-				<li>
-					<b>Données de santé :
-					</b>informations relatives à votre grossesse, vos symptômes, vos médicaments, vos consultations médicales, et tout autre renseignement que vous saisissez dans l’application.</li>
-				<li>
-					<b>Données d’utilisation :</b>
-					informations sur la manière dont vous interagissez avec l’application, telles que les fonctionnalités que vous utilisez le plus, les pages que vous visitez et la fréquence de vos connexions.</li>
-			</ul>
+		</p>
+		<ul>
+			<li>
+				<b>Données d’identification :</b>
+				telles que votre nom, prénom, adresse e-mail et numéro de téléphone, que vous renseignez lors de la création de votre compte.</li>
+			<li>
+				<b>Données de santé :
+				</b>informations relatives à votre grossesse, vos symptômes, vos médicaments, vos consultations médicales, et tout autre renseignement que vous saisissez dans l’application.</li>
+			<li>
+				<b>Données d’utilisation :</b>
+				informations sur la manière dont vous interagissez avec l’application, telles que les fonctionnalités que vous utilisez le plus, les pages que vous visitez et la fréquence de vos connexions.</li>
+		</ul>
 
-			Ces informations sont collectées dans le but de vous offrir une expérience personnalisée et optimale dans le suivi de votre grossesse.
+		Ces informations sont collectées dans le but de vous offrir une expérience personnalisée et optimale dans le suivi de votre grossesse.
 
-			<h2>
-				2. Comment utilisons-nous vos données ?
-			</h2>
-			Nous utilisons vos données personnelles pour plusieurs raisons essentielles, notamment :
+		<h2 class="title-h2">
+			2. Comment utilisons-nous vos données ?</h2>
+	</p>
+	<p>
+		Nous utilisons vos données personnelles pour plusieurs raisons essentielles, notamment :
+	</p>
+	<ul>
+		<li>
+			<b>Personnalisation de l’expérience utilisateur :</b>
+			Vos données nous permettent de vous proposer un suivi personnalisé de votre grossesse, en tenant compte de vos symptômes, rendez-vous médicaux, ou encore des médicaments que vous prenez.</li>
+		<li>
+			<b>Suivi médical :</b>
+			Les informations que vous enregistrez dans l’application peuvent être partagées avec vos médecins ou autres professionnels de santé, avec votre consentement explicite, sous forme de rapports ou de PDF, afin qu’ils puissent suivre l’évolution de votre grossesse et ajuster les traitements si nécessaire.</li>
+		<li>
+			<b>Amélioration des services :</b>
+			Nous analysons les données d’utilisation pour améliorer continuellement les fonctionnalités de notre application, afin de mieux répondre à vos besoins.</li>
+		<li>
+			<b>Communication :</b>
+			Nous pouvons vous envoyer des notifications ou des e-mails liés à l’utilisation de l’application, tels que des rappels de rendez-vous, des mises à jour de votre suivi de grossesse, ou des recommandations médicales.</li>
+		<li>
+			<b>Sécurité :</b>
+			Vos données sont également utilisées pour assurer la sécurité de votre compte et prévenir toute tentative de fraude ou d’accès non autorisé.</li>
+	</ul>
 
-			<ul>
-				<li>
-					<b>Personnalisation de l’expérience utilisateur :</b>
-					Vos données nous permettent de vous proposer un suivi personnalisé de votre grossesse, en tenant compte de vos symptômes, rendez-vous médicaux, ou encore des médicaments que vous prenez.</li>
-				<li>
-					<b>Suivi médical :</b>
-					Les informations que vous enregistrez dans l’application peuvent être partagées avec vos médecins ou autres professionnels de santé, avec votre consentement explicite, sous forme de rapports ou de PDF, afin qu’ils puissent suivre l’évolution de votre grossesse et ajuster les traitements si nécessaire.</li>
-				<li>
-					<b>Amélioration des services :</b>
-					Nous analysons les données d’utilisation pour améliorer continuellement les fonctionnalités de notre application, afin de mieux répondre à vos besoins.</li>
-				<li>
-					<b>Communication :</b>
-					Nous pouvons vous envoyer des notifications ou des e-mails liés à l’utilisation de l’application, tels que des rappels de rendez-vous, des mises à jour de votre suivi de grossesse, ou des recommandations médicales.</li>
-				<li>
-					<b>Sécurité :</b>
-					Vos données sont également utilisées pour assurer la sécurité de votre compte et prévenir toute tentative de fraude ou d’accès non autorisé.</li>
-			</ul>
+	<h2 class="title-h2">
+		3. Partage de vos données personnelles
+	</h2>
+	<p>
+		Nous prenons votre vie privée très au sérieux et ne partageons pas vos données personnelles avec des tiers sans votre consentement. Cependant, dans certains cas, il peut être nécessaire de partager certaines informations avec :
+	</p>
+	<ul>
+		<li>
+			<b>Les professionnels de santé :</b>
+			Avec votre autorisation explicite, vos données médicales peuvent être transmises à votre médecin ou à d'autres praticiens afin de garantir un suivi optimal de votre grossesse.</li>
+		<li>
+			<b>Prestataires de services :</b>
+			Nous collaborons avec des prestataires externes qui nous assistent dans le bon fonctionnement de l’application (hébergement des données, maintenance technique, etc.). Ces prestataires sont soumis à des obligations strictes de confidentialité.</li>
+		<li>
+			<b>Autorités légales :</b>
+			Nous pouvons être amenés à partager vos données en cas d’obligation légale, par exemple, dans le cadre d’une enquête judiciaire ou administrative.</li>
+	</ul>
 
-			<h2>
-				3. Partage de vos données personnelles
-			</h2>
-			Nous prenons votre vie privée très au sérieux et ne partageons pas vos données personnelles avec des tiers sans votre consentement. Cependant, dans certains cas, il peut être nécessaire de partager certaines informations avec :
+	<h2 class="title-h2">
+		4. Conservation de vos données
+	</h2>
+	<p>
+		Nous conservons vos données personnelles pendant la durée nécessaire à la fourniture de nos services. Tant que vous utilisez activement l’application, vos données resteront stockées de manière sécurisée. Si vous décidez de supprimer votre compte, vos données seront effacées de façon permanente, à moins qu’une conservation plus longue soit requise par la loi.
+	</p>
+	<p>
+		Vous avez également la possibilité de télécharger ou de transférer vos données à tout moment avant la suppression de votre compte. Nous vous recommandons de consulter notre
+		<a href="">Politique de stockage des données</a>
+		pour plus d’informations à ce sujet.</p>
 
-			<ul>
-				<li>Les professionnels de santé : Avec votre autorisation explicite, vos données médicales peuvent être transmises à votre médecin ou à d'autres praticiens afin de garantir un suivi optimal de votre grossesse.</li>
-				<li>Prestataires de services : Nous collaborons avec des prestataires externes qui nous assistent dans le bon fonctionnement de l’application (hébergement des données, maintenance technique, etc.). Ces prestataires sont soumis à des obligations strictes de confidentialité.</li>
-				<li>Autorités légales : Nous pouvons être amenés à partager vos données en cas d’obligation légale, par exemple, dans le cadre d’une enquête judiciaire ou administrative.</li>
-			</ul>
 
-			<h2>
-				4. Conservation de vos données
-			</h2>
-			Nous conservons vos données personnelles pendant la durée nécessaire à la fourniture de nos services. Tant que vous utilisez activement l’application, vos données resteront stockées de manière sécurisée. Si vous décidez de supprimer votre compte, vos données seront effacées de façon permanente, à moins qu’une conservation plus longue soit requise par la loi.
-																																													Vous avez également la possibilité de télécharger ou de transférer vos données à tout moment avant la suppression de votre compte. Nous vous recommandons de consulter notre
-			<a href="">Politique de stockage des données</a>
-			pour plus d’informations à ce sujet.
+	<h2 class="title-h2">
+		5. Sécurité de vos données
+	</h2>
+	<p>
+		Nous mettons en place des mesures de sécurité rigoureuses pour protéger vos informations personnelles. Cela inclut :
+	</p>
+	<ul>
+		<li>
+			<b>Cryptage des données :</b>
+			Toutes vos informations sont cryptées aussi bien lors de leur transfert que lorsqu’elles sont stockées.</li>
+		<li>
+			<b>Authentification sécurisée :</b>
+			Nous utilisons des protocoles d’authentification sécurisés pour garantir que seules les personnes autorisées ont accès à votre compte.</li>
+		<li>
+			<b>Surveillance et contrôle :</b>
+			Nos systèmes sont régulièrement surveillés pour détecter toute activité suspecte ou toute tentative d’accès non autorisé.
+																																																																																								Pour plus de détails, nous vous invitons à consulter notre
+			<a href="">Politique de sécurité des données</a>.</li>
+	</ul>
 
-			<h2>
-				5. Sécurité de vos données
-			</h2>
-			Nous mettons en place des mesures de sécurité rigoureuses pour protéger vos informations personnelles. Cela inclut :
-			<ul>
-				<li>Cryptage des données : Toutes vos informations sont cryptées aussi bien lors de leur transfert que lorsqu’elles sont stockées.</li>
-				<li>Authentification sécurisée : Nous utilisons des protocoles d’authentification sécurisés pour garantir que seules les personnes autorisées ont accès à votre compte.</li>
-				<li>Surveillance et contrôle : Nos systèmes sont régulièrement surveillés pour détecter toute activité suspecte ou toute tentative d’accès non autorisé.
-																																																	Pour plus de détails, nous vous invitons à consulter notre
-					<a href="">Politique de sécurité des données</a>.</li>
-			</ul>
+	<h2 class="title-h2">
+		6. Vos droits concernant vos données personnelles
+	</h2>
+	<p>
+		Conformément au RGPD, vous disposez de plusieurs droits concernant vos données personnelles :
+	</p>
+	<ul>
+		<li>
+			<b>Droit d’accès :</b>
+			Vous pouvez demander à tout moment à accéder aux données que nous détenons à votre sujet.</li>
+		<li>
+			<b>Droit de rectification :</b>
+			Si certaines informations sont inexactes ou incomplètes, vous avez le droit de les corriger.</li>
+		<li>
+			<b>Droit à l’effacement :</b>
+			Vous pouvez demander la suppression de vos données dans certaines circonstances, par exemple, si vous cessez d’utiliser l’application.</li>
+		<li>
+			<b>Droit à la portabilité :</b>
+			Vous pouvez demander que vos données soient transférées à un autre prestataire ou à vous-même.</li>
+		<li>
+			<b>Droit d’opposition :</b>
+			Vous pouvez vous opposer à l’utilisation de vos données pour certaines finalités, comme la réception de communications promotionnelles.</li>
+	</ul>
+	<p>
+		Pour exercer ces droits, il vous suffit de nous contacter via les informations fournies dans la section
+		<a href="#">Contact</a>.
+	</p>
 
-			<h2>
-				6. Vos droits concernant vos données personnelles
-			</h2>
-			Conformément au RGPD, vous disposez de plusieurs droits concernant vos données personnelles :
-			<ul>
-				<li>Droit d’accès : Vous pouvez demander à tout moment à accéder aux données que nous détenons à votre sujet.</li>
-				<li>Droit de rectification : Si certaines informations sont inexactes ou incomplètes, vous avez le droit de les corriger.</li>
-				<li>Droit à l’effacement : Vous pouvez demander la suppression de vos données dans certaines circonstances, par exemple, si vous cessez d’utiliser l’application.</li>
-				<li>Droit à la portabilité : Vous pouvez demander que vos données soient transférées à un autre prestataire ou à vous-même.</li>
-				<li>Droit d’opposition : Vous pouvez vous opposer à l’utilisation de vos données pour certaines finalités, comme la réception de communications promotionnelles.</li>
-			</ul>
-			Pour exercer ces droits, il vous suffit de nous contacter via les informations fournies dans la section
-			<a href="">Contact</a>.
+	<h2 class="title-h2">
+		7. Modifications de la politique de confidentialité
+	</h2>
+	<p>
+		Nous nous réservons le droit de mettre à jour cette politique de confidentialité à tout moment, en fonction des évolutions législatives ou des changements dans nos pratiques internes. Vous serez informé(e) de toute modification significative par le biais de l’application ou par e-mail.
+	</p>
+	Nous vous encourageons à consulter régulièrement cette politique afin de rester informé(e) sur la manière dont vos données sont protégées et utilisées.
 
-			<h2>
-				7. Modifications de la politique de confidentialité
-			</h2>
-			Nous nous réservons le droit de mettre à jour cette politique de confidentialité à tout moment, en fonction des évolutions législatives ou des changements dans nos pratiques internes. Vous serez informé(e) de toute modification significative par le biais de l’application ou par e-mail.
-																																																					Nous vous encourageons à consulter régulièrement cette politique afin de rester informé(e) sur la manière dont vos données sont protégées et utilisées.
-
-			<h2>
-				8. Contact
-			</h2>
-			Si vous avez des questions, des préoccupations ou si vous souhaitez exercer vos droits en matière de confidentialité, n’hésitez pas à nous contacter à contact@maternacare.fr ou via le formulaire de contact.</p>
-	</article>
-
-{% endblock %}
+	<h2 class="title-h2">
+		8. Contact
+	</h2>
+	<p>
+		Si vous avez des questions, des préoccupations ou si vous souhaitez exercer vos droits en matière de confidentialité, n’hésitez pas à nous contacter à contact@maternacare.fr ou via le formulaire de contact.</p>
+</article>{% endblock %}</p>

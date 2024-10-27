@@ -1,24 +1,36 @@
 {% extends "../base.twig" %}
 
+{% block styles %}
+	<link rel="stylesheet" href="./assets/css/login.css">
+{% endblock %}
+
 {% block title %}
-	<title>{{title}}</title>
+	<title>Connexion</title>
 {% endblock %}
 
 {% block main %}
 	<section class="form-login-container">
-		<h2>Formulaire de connexion entreprenaurial</h2>
+
+		<img id="logo" src="./assets/media/images/logo-nobackground.png" alt="Logo MaternaCare">
+		<h1>Connexion</h1>
 		<p class="error">{{error}}</p>
 		<form action="/login" method="post">
-			<div>
-				<label for="email">Email</label>
-				<input type="text" id="email" name="email">
+			<div class="input-cards">
+				<div class="label-card">
+					<img src="./assets/media/icons/icon_message.svg" alt="Icône mail" class="icon">
+					<label for="email">Email</label>
+				</div>
+				<input type="text" id="email" name="email" placeholder="Entrez votre identifiant ici" required>
 			</div>
-			<div>
-				<label for="password">Mot de passe</label>
-				<input type="password" id="password" name="password">
+			<div class="input-cards">
+				<div class="label-card">
+					<img src="./assets/media/icons/icon_eye_open.svg" alt="Icône mail" class="icon">
+					<label for="password">Mot de passe</label>
+				</div>
+				<input type="password" id="password" name="password" placeholder="**********" required>
 			</div>
 
-			<button type="submit">Se connecter</button>
+			<button id="btn-submit" type="submit">Se connecter</button>
 		</form>
 	</section>
 {% endblock %}

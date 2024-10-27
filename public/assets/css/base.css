@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@media (max-width: 450px) and (max-height: 930px) {
+
+    * {
+        font-family: 'Montserrat';
+        font-size: 12px;
+        font-weight: 500;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    html{
+        background-color: #F3FBE8;
+    }
+
+}

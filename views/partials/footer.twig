@@ -1,71 +1,92 @@
+<link rel="stylesheet" href="./assets/css/footer.css">
+
 <footer>
 	{# SECT RRSS #}
-	<article>
+	<article class="social-container">
 		<div>
-			<img src="https://www.instagram.com/cezdev/" alt="Logo Instagram Cezdev">
-			<img src="https://www.facebook.com/EcoleRi7/" alt="Logo Facebook Ecole Ri7">
+			<a href="https://www.instagram.com/cezdev/">
+				<img src="./assets/media/icons/icon_instagram_circle.svg" alt="Logo Instagram Cezdev">
+			</a>
+			<a href="https://www.facebook.com/EcoleRi7/">
+				<img id="fc-logo" src="./assets/media/icons/icon_facebook_circle.svg" alt="Logo Facebook Ecole Ri7">
+			</a>
 		</div>
 		<h3>Suivez-nous sur nos réseaux sociaux</h3>
 	</article>
 
 	{# SECT EXT-PAGES #}
-	<div>
-		<article>
+	<div class="links-container">
+		<article class="links-cards">
 			<h4>1. Confidentialité et Sécurité</h4>
 			<nav>
 				<ul>
-					<li>Politique de confidentialité</li>
-					<li>Politique de sécurité des données</li>
-					<li>Politique de stockage des données</li>
-					<li>Politique relative aux cookies</li>
-					<li>Confidentialité des informations médicales</li>
+					<a href="#" id="privacy-policy-link">Politique de confidentialité</a>
+					<a href="#" id="security-policy-link">Politique de sécurité des données</a>
+					<li><a href="">Politique de stockage des données</a></li>
+					<li><a href="">Politique relative aux cookies</a></li>
+					<li><a href="">Confidentialité des informations médicales</a></li>
 				</ul>
 			</nav>
 		</article>
 
-		<article>
+		<article class="links-cards">
 			<h4>2. Utilisation de l'Application</h4>
 			<nav>
 				<ul>
-					<li>Conditions générales d'utilisation</li>
-					<li>Gestion du compte</li>
-					<li>Suppression du compte et des données</li>
-					<li>Consentement éclairé</li>
+					<li><a href="">Conditions générales d'utilisation</a></li>
+					<li><a href="">Gestion du compte</a></li>
+					<li><a href="">Suppression du compte et des données</a></li>
+					<li><a href="">Consentement éclairé</a></li>
 				</ul>
 			</nav>
 		</article>
 
-		<article>
+		<article class="links-cards">
 			<h4>3. Données Médicales</h4>
 			<nav>
 				<ul>
-					<li>Accès à vos rapports médicaux</li>
-					<li>Droits du patient</li>
-					<li>Suivi de la santé et du bien-être</li>
+					<li><a href="">Accès à vos rapports médicaux</a></li>
+					<li><a href="">Droits du patient</a></li>
+					<li><a href="">Suivi de la santé et du bien-être</a></li>
 				</ul>
 			</nav>
 		</article>
 
-		<article>
+		<article class="links-cards">
 			<h4>4. Informations Générales</h4>
 			<nav>
 				<ul>
-					<li>Mentions légales</li>
-					<li>Contact</li>
-					<li>À propos de nous</li>
-					<li>Droits d'auteur</li>
+					<li><a href="">Mentions légales</a></li>
+					<li><a href="">Contact</a></li>
+					<li><a href="">À propos de nous</a></li>
+					<li><a href="">Droits d'auteur</a></li>
 				</ul>
 			</nav>
 		</article>
 	</div>
 
 	{# SECT COPYRIGHT #}
-	<div>
+	<div class="copy-container">
 		<p>@copyright 2024</p>
-		<div>
-			<img src="" alt="">
-			<p>Site web crée par cezdev</p>
-		</div>
+		<a href="https://cesarsoyo.github.io/Portfolio_CesarOrtiz/">
+			<img src="./assets/media/images/logo_cezdev.png" alt="Logo Cezdev">
+		</a>
+		<p>Site web crée par cezdev</p>
 	</div>
 
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const privacyLink = document.getElementById("privacy-policy-link");
+			const securityLink = document.getElementById("security-policy-link");
+
+			privacyLink.addEventListener("click", function (event) {
+				event.preventDefault();
+				window.location.href = "/privacypg";
+			});
+			securityLink.addEventListener("click", function (event) {
+				event.preventDefault();
+				window.location.href = "/securitypg";
+			});
+		});
+	</script>
 </footer>

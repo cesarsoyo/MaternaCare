@@ -1,21 +1,113 @@
+<link rel="stylesheet" href="./assets/css/header.css">
+
 <header>
-	<nav>
-		<ul>
-			{% if user %}
-				<li>
-					<a href="/logout">Déconnexion</a>
+	{% if user %}
+
+	<div id="mySidenav" class="sidenav">
+		<a href="#" id="closeBtn" class="close">
+			&lt;
+		</a>
+		<ul id="menu" class="menu">
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_dashboard.svg" alt="Icône dashboard" class="menu-image">
 				</li>
-				<li>
-					<a href="/addbook">Ajouter un livre</a>
+			</a>
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_file.svg" alt="Icône notes" class="menu-image">
 				</li>
-			{% else %}
-				<li>
-					<a href="/login">Connexion</a>
+			</a>
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_food.svg" alt="Icône alimentation" class="menu-image" id="food-icon">
 				</li>
-				<li>
-					<a href="/signin">Inscription</a>
+			</a>
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_hospital.svg" alt="Icône hospitaux" class="menu-image">
 				</li>
-			{% endif %}
+			</a>
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_pills.svg" alt="Icône médicaments" class="menu-image" id="medic-icon">
+				</li>
+			</a>
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_library.svg" alt="Icône publications" class="menu-image"></li>
+			</a>
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_wagon.svg" alt="Icône centres médicaux" class="menu-image"></li>
+			</a>
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_doctorsuitcase.svg" alt="Icône médecins" class="menu-image"></li>
+			</a>
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_downloaddoc.svg" alt="Documents" class="menu-image">
+				</li>
+			</a>
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_electrocardio1.svg" alt="Contractions" class="menu-image"></li>
+			</a>
+			<a href="#" class="image-link">
+				<li><img src="/assets/media/icons/icon_gear.svg" alt="Paramètres" class="menu-image">
+				</li>
+			</a>
+			<a href="/logout" class="image-link">
+				<li><img src="/assets/media/icons/icon_exit.svg" alt="Déconnexion" class="menu-image">
+				</li>
+			</a>
+			<a href="#" class="image-link logo">
+				<li><img src="/assets/media/images/logo-nobackground.png" alt="Logo MaternaCare" class="menu-image "
+						id="logo-header"></li>
+			</a>
 		</ul>
-	</nav>
+	</div>
+
+	<a href="#" id="openBtn">
+		<span class="burger-icon">
+			<span></span>
+			<span></span>
+			<span></span>
+		</span>
+	</a>
+
+	{% else %}
+	<!-- <li>
+		<a href="../accueil.html">Accueil</a>
+	</li> -->
+	<div class="links-connexion">
+		<li class="links-conn-card">
+			<a href="/accueil">Accueil</a>
+		</li>
+		<li class="links-conn-card">
+			<a href="/signin">Inscription</a>
+		</li>
+		<li class="links-conn">
+			<a href="/login">Connexion</a>
+		</li>
+	</div>
+	
+
+	{% endif %}
+
+	<script>
+		let sidenav = document.getElementById("mySidenav");
+		let openBtn = document.getElementById("openBtn");
+		let closeBtn = document.getElementById("closeBtn");
+
+		openBtn.onclick = openNav
+		closeBtn.onclick = closeNav
+
+		function openNav() {
+			sidenav.classList.add('active');
+		}
+
+		function closeNav() {
+			sidenav.classList.remove('active');
+		}
+
+		document.getElementById('food-icon').addEventListener('click', function () {
+			window.location.href = 'addfood';
+		});
+
+		document.getElementById('medic-icon').addEventListener('click', function () {
+			window.location.href = 'addmedicaments';
+		});
+	</script>
 </header>
