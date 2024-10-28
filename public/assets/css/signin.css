@@ -155,172 +155,172 @@
 
 @media (min-width: 960px) {
 
-/* DESKTOP CSS */
-* {
-    font-family: 'Montserrat';
-    font-size: 12px;
-    font-weight: 400;
-    color: #264559;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-html {
-    background-color: #F3FBE8;
-    display: flex;
-    flex-direction: column-reverse;
-
-}
-
-#logo {
-    width: 20vw;
-    padding: 0;
-    margin: auto;
-    margin: 0;
-}
-
-h1 {
-    font-size: 40px;
-    font-weight: 800;
-    text-align: center;
-    width: 100%;
-    padding-top: 20px;
-
-}
-
-section {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-form {
-    width: 90vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.error {
-    color: red;
-    font-style: italic;
-    text-align: center;
-    margin-left: 20%;
-    margin-top: 10px;
-}
-
-.form-inscription-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90vw;
-    padding-top: 40px;
-}
-
-.form-inscription-container h2 {
-    font-size: 14px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.input-cards {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-
-    text-align: left;
-    gap: 12px;
-    width: 100%;
-    margin-top: 20px;
-    margin-left: 25%;
-}
-
-.label-card {
-    display: flex;
-    gap: 8px;
-    justify-content: left;
-    text-align: left;
-}
-
-.label-card label {
-    color: #264559;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.input-cards img {
-    width: 15px;
-}
-
-.input-cards input,
-.input-cards select {
-    width: 80%;
-    color: #264559;
-    text-align: left;
-    padding: 4px 8px;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-
-}
-
-.input-cards select option {
-    color: #264559;
-    text-align: left;
-}
-
-.pass-rules {
-    text-align: left;
-    font-size: 9px;
-    color: #606060;
-    margin-left: 10px;
-    font-size: 10px;
-}
-
-.input-cards input::placeholder {
-    text-align: left;
-    font-family: "Montserrat";
-    color: #D9D9D9;
-    padding: 4px 8px;
-}
-
-
-.input-cards input:focus,
-.input-cards select:focus {
-    border: solid #264559 1px;
-    padding: 4px 8px;
-
-}
-
-.input-cards select option {
-    color: #264559;
-}
-
-#btn-submit {
-    background-color: #264559;
-    color: white;
-    font-size: 18px;
-    font-weight: 700;
-    margin-top: 40px;
-    border-radius: 8px;
-    padding: 8px 32px;
-    border: none;
-    margin-bottom: 40px;
-    border: #264559 2px solid;
-    cursor: pointer;
-
-
-    &:hover {
-        background-color: white;
+    /* DESKTOP CSS */
+    * {
+        font-family: 'Montserrat';
+        font-size: 12px;
+        font-weight: 400;
         color: #264559;
-        box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+        margin: 0;
+        padding: 0;
+        text-align: center;
     }
-}
+
+    html {
+        background-color: #F3FBE8;
+        display: flex;
+        flex-direction: column-reverse;
+        overflow-x: hidden;
+    }
+
+    #logo {
+        width: 20vw;
+        padding: 0;
+        margin: auto;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 40px;
+        font-weight: 800;
+        text-align: center;
+        width: 100%;
+        padding-top: 20px;
+
+    }
+
+    section {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    form {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .error {
+        color: red;
+        font-style: italic;
+        text-align: center;
+        margin-left: 20%;
+        margin-top: 10px;
+    }
+
+    .form-inscription-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90vw;
+        padding-top: 40px;
+    }
+
+    .form-inscription-container h2 {
+        font-size: 14px;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .input-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+
+        text-align: left;
+        gap: 12px;
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 25%;
+    }
+
+    .label-card {
+        display: flex;
+        gap: 8px;
+        justify-content: left;
+        text-align: left;
+    }
+
+    .label-card label {
+        color: #264559;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .input-cards img {
+        width: 15px;
+    }
+
+    .input-cards input,
+    .input-cards select {
+        width: 80%;
+        color: #264559;
+        text-align: left;
+        padding: 4px 8px;
+        border-radius: 12px;
+        border: none;
+        outline: none;
+
+    }
+
+    .input-cards select option {
+        color: #264559;
+        text-align: left;
+    }
+
+    .pass-rules {
+        text-align: left;
+        font-size: 9px;
+        color: #606060;
+        margin-left: 10px;
+        font-size: 10px;
+    }
+
+    .input-cards input::placeholder {
+        text-align: left;
+        font-family: "Montserrat";
+        color: #D9D9D9;
+        padding: 4px 8px;
+    }
+
+
+    .input-cards input:focus,
+    .input-cards select:focus {
+        border: solid #264559 1px;
+        padding: 4px 8px;
+
+    }
+
+    .input-cards select option {
+        color: #264559;
+    }
+
+    #btn-submit {
+        background-color: #264559;
+        color: white;
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 40px;
+        border-radius: 8px;
+        padding: 8px 32px;
+        border: none;
+        margin-bottom: 40px;
+        border: #264559 2px solid;
+        cursor: pointer;
+
+
+        &:hover {
+            background-color: white;
+            color: #264559;
+            box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+    }
 }

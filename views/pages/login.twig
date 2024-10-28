@@ -1,7 +1,7 @@
 {% extends "../base.twig" %}
 
 {% block styles %}
-	<link rel="stylesheet" href="./assets/css/login.css">
+	<link rel="stylesheet" href="/assets/css/login.css">
 {% endblock %}
 
 {% block title %}
@@ -11,20 +11,20 @@
 {% block main %}
 	<section class="form-login-container">
 
-		<img id="logo" src="./assets/media/images/logo-nobackground.png" alt="Logo MaternaCare">
+		<img id="logo" src="/assets/media/images/logo-nobackground.png" alt="Logo MaternaCare">
 		<h1>Connexion</h1>
 		<p class="error">{{error}}</p>
 		<form action="/login" method="post">
 			<div class="input-cards">
 				<div class="label-card">
-					<img src="./assets/media/icons/icon_message.svg" alt="Icône mail" class="icon">
+					<img src="/assets/media/icons/icon_message.svg" alt="Icône mail" class="icon">
 					<label for="email">Email</label>
 				</div>
 				<input type="text" id="email" name="email" placeholder="Entrez votre identifiant ici" required>
 			</div>
 			<div class="input-cards">
 				<div class="label-card">
-					<img src="./assets/media/icons/icon_eye_open.svg" alt="Icône mail" class="icon">
+					<img src="/assets/media/icons/icon_eye_open.svg" alt="Icône mail" class="icon">
 					<label for="password">Mot de passe</label>
 				</div>
 				<input type="password" id="password" name="password" placeholder="**********" required>

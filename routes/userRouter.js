@@ -97,27 +97,86 @@ userRouter.get('/fooddelete/:foodid', async (req, res) => {
     try {
         await foodModel.deleteOne({ _id: req.params.foodid });
         // await userModel.updateOne({ _id: req.session.user._id }, { $pull: { foods: req.params.foodid } });
-        res.status(200).send({ message: 'Le plat a été supprimé avec succès' });
+        res.redirect("/addfood")
     } catch (error) {
         res.status(500).send({ error: 'Erreur lors de la suppression du plat' });
     }
 });
+
 userRouter.get('/medicamentdelete/:medicamentid', async (req, res) => {
     try {
         await medicamentsModel.deleteOne({ _id: req.params.medicamentid });
-        res.status(200).send({ message: 'Le médicament a été supprimé avec succès' });
+        res.redirect("/addmedicaments")
     } catch (error) {
         res.status(500).send({ error: 'Erreur lors de la suppression du médicament' });
     }
 });
 
-userRouter.get('/addmedicaments', authGuard, async (req, res) => {
-    const user = await userModel.findById(req.session.user._id)
-    res.render('pages/addmedicaments.twig', {
-        user: req.session.user
-    })
-})
 
+userRouter.get('/foodupdate/:foodid', authGuard, async (req, res) => {
+    try {
+        let food = await foodModel.findById(req.params.foodid);
+        res.render("pages/addfood.twig", {
+            user: await userModel.findById(req.session.user),
+            food: food
+        })
+    } catch (error) {
+        res.render("pages/addfood.twig", {
+            error: "Le plat que vous souhaitez modifier n'existe pas...",
+            user: await userModel.findById(req.session.user),
+        })
+    }
+});
+
+userRouter.post("/foodupdate/:foodid", authGuard, async (req, res) => {
+    try {
+        await foodModel.updateOne({ _id: req.params.foodid }, req.body);
+        res.redirect("/addfood");
+
+    } catch (error) {
+        res.render("pages/addfood.twig", {
+            error: "Un problème est survenu pendant la mise à jour du plat", 
+            user: await userModel.findById(req.session.user._id), 
+            food: await foodModel.find() 
+        });
+    }
+});
+
+
+
+
+
+userRouter.get('/medicamentupdate/:medicamentid', authGuard, async (req, res) => {
+    try {
+        let medicament = await medicamentsModel.findById(req.params.medicamentid);
+        res.render("pages/addmedicaments.twig", {
+            user: await userModel.findById(req.session.user._id),
+            medicament: medicament
+        });
+    } catch (error) {
+        res.render("pages/addmedicaments.twig", {
+            error: "Le médicament que vous souhaitez modifier n'existe pas...",
+            user: await userModel.findById(req.session.user._id),
+        });
+    }
+});
+
+userRouter.post("/medicamentupdate/:medicamentid", authGuard, async (req, res) => {
+    try {
+        await medicamentsModel.updateOne({ _id: req.params.medicamentid }, req.body);
+        res.redirect("/addmedicaments");
+
+    } catch (error) {
+        res.render("pages/addmedicaments.twig", {
+            error: "Un problème est survenu pendant la mise à jour du médicament", 
+            user: await userModel.findById(req.session.user._id), 
+            medicaments: await medicamentsModel.find() 
+        });
+    }
+});
+
+
+// RENDER PAGES
 userRouter.get('/privacypg', (req, res) => {
     res.render('pages/privacypg.twig')
 })
@@ -147,6 +206,12 @@ userRouter.get('/contact', authGuard, async (req, res) => {
     })
 })
 
+// userRouter.get('/addmedicaments', authGuard, async (req, res) => {
+//     const user = await userModel.findById(req.session.user._id)
+//     res.render('pages/addmedicaments.twig', {
+//         user: req.session.user
+//     })
+// })
 
 userRouter.get('', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'accueil.html'));

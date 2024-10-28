@@ -1,7 +1,7 @@
 {% extends "../base.twig" %}
 
 {% block styles %}
-	<link rel="stylesheet" href="./assets/css/food.css">
+	<link rel="stylesheet" href="/assets/css/food.css">
 {% endblock %}
 
 
@@ -15,7 +15,7 @@
 		<div class="meal-cards-container">
 			<div class='foods-title'>
 				<div>
-					<img src="./assets/media/icons/icon_food.svg" alt="Icône d'alimentation">
+					<img src="/assets/media/icons/icon_food.svg" alt="Icône d'alimentation">
 				</div>
 				<h2>
 					<span>{{user.firstname}}</span>, ici se trouvent tes repas !</h2>
@@ -62,8 +62,8 @@
 							</div>
 						</div>
 						<div class="links-card-user">
-							<a id="delete-btn" href="./fooddelete/{{food.id}}"><img src="./assets/media/icons/icon_trash.svg" alt="Icône d'une poubelle">Supprimer</a>
-							<a id="update-btn" href="./foodupdate/{{food.id}}"><img src="./assets/media/icons/icon_edit.svg" alt="Icône de modification">Modifier</a>
+							<a id="delete-btn" href="/fooddelete/{{food.id}}"><img src="/assets/media/icons/icon_trash.svg" alt="Icône d'une poubelle">Supprimer</a>
+							<a id="update-btn" href="/foodupdate/{{food.id}}"><img src="/assets/media/icons/icon_edit.svg" alt="Icône de modification">Modifier</a>
 						</div>
 					</div>
 				{% endfor %}
@@ -77,13 +77,13 @@
 	<section class="addfood-container">
 		<div class="title-info">
 			<div class="img-info">
-				<img src="./assets/media/icons/icon_food.svg" alt="Icône d'alimentation">
+				<img src="/assets/media/icons/icon_food.svg" alt="Icône d'alimentation">
 			</div>
 			<div>
 				<h2>+ Ajouter un repas</h2>
 			</div>
 		</div>
-		<form class="form-addfood" method="POST" action="/addfood">
+		<form class="form-addfood" method="POST" {% if food %} action="/foodupdate/{{food.id}}" {% else %} action="/addfood" {% endif %}>
 			<div class="label-cards">
 				<label for="mealEmail">Email :</label>
 				<input type="text" name="mealEmail" id="mealEmail" value="{{food.mealEmail}}">

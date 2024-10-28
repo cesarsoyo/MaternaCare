@@ -49,8 +49,9 @@ const Food = require('../models/foodModel')
 foodRouter.post('/addfood', async (req, res) => {
     try {
         const newFood = new Food(req.body);  // Créer un nouvel aliment avec les données du corps de la requête
-        const savedFood = await newFood.save();  // Enregistrer dans la base de données
-        res.status(201).json(savedFood);  // Retourner l'aliment créé
+        newFood.validateSync()
+        await newFood.save();
+        res.redirect('/addfood')
     } catch (error) {
         res.status(400).json({ message: 'Erreur lors de la création de l\'aliment', error });
     }

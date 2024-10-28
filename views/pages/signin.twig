@@ -1,7 +1,7 @@
 {% extends "../base.twig" %}
 
 {% block styles %}
-	<link rel="stylesheet" href="./assets/css/signin.css">
+	<link rel="stylesheet" href="/assets/css/signin.css">
 {% endblock %}
 
 {% block title %}
@@ -10,7 +10,7 @@
 
 {% block main %}
 	<section>
-		<img id="logo" src="./assets/media/images/logo-nobackground.png" alt="Logo MaternaCare">
+		<img id="logo" src="/assets/media/images/logo-nobackground.png" alt="Logo MaternaCare">
 		<h1>Inscription</h1>
 		{# FORM 1 INFO CONNEXION #}
 		<form method="POST" action="/signin">
@@ -19,7 +19,7 @@
 				<p class="error">{{error}}</p>
 				<div class="input-cards">
 					<div class="label-card">
-						<img src="./assets/media/icons/icon_user.svg" alt="Icône user" class="icon">
+						<img src="/assets/media/icons/icon_user.svg" alt="Icône user" class="icon">
 						<label for="name">Nom de famille*</label>
 					</div>
 					<input type="text" name="name" id="name" placeholder="Votre nom de famille ici">
@@ -27,21 +27,21 @@
 
 				<div class="input-cards">
 					<div class="label-card">
-						<img src="./assets/media/icons/icon_user.svg" alt="Icône user" class="icon">
+						<img src="/assets/media/icons/icon_user.svg" alt="Icône user" class="icon">
 						<label for="firstname">Prénom*</label>
 					</div>
 					<input type="text" name="firstname" id="firstname" placeholder="Votre prénom ici">
 				</div>
 				<div class="input-cards">
 					<div class="label-card">
-						<img src="./assets/media/icons/icon_message.svg" alt="Icône mail" class="icon">
+						<img src="/assets/media/icons/icon_message.svg" alt="Icône mail" class="icon">
 						<label for="email">Adresse mail*</label>
 					</div>
 					<input type="text" name="email" id="email" placeholder="exemple@mail.fr">
 				</div>
 				<div class="input-cards">
 					<div class="label-card">
-						<img src="./assets/media/icons/icon_user.svg" alt="Icône user" class="icon">
+						<img src="/assets/media/icons/icon_user.svg" alt="Icône user" class="icon">
 						<label for="role">Rôle*</label>
 					</div>
 					<select name="role" id="role">
@@ -51,7 +51,7 @@
 				</div>
 				<div class="input-cards">
 					<div class="label-card">
-						<img src="./assets/media/icons/icon_eye_open.svg" alt="Icône oeil ouvert" class="icon">
+						<img src="/assets/media/icons/icon_eye_open.svg" alt="Icône oeil ouvert" class="icon">
 						<label for="password">Mot de passe*</label>
 					</div>
 					<input type="password" name="password" id="password" placeholder="**********">

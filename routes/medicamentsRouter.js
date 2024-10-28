@@ -30,8 +30,8 @@ const Medicament = require('../models/medicamentsModel');
 medicamentsRouter.post('/addmedicaments', async (req, res) => {
     try {
         const newMedicament = new Medicament(req.body);  // Créer un nouveau médicament avec les données du corps de la requête
-        const savedMedicament = await newMedicament.save();  // Enregistrer dans la base de données
-        res.status(201).json(savedMedicament);  // Retourner le médicament créé
+        await newMedicament.save();  // Enregistrer dans la base de données
+        res.redirect('/addmedicaments');  // Retourner le médicament créé
     } catch (error) {
         res.status(400).json({ message: 'Erreur lors de la création du médicament', error });
     }

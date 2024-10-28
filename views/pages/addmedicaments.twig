@@ -1,7 +1,7 @@
 {% extends "../base.twig" %}
 
 {% block styles %}
-	<link rel="stylesheet" href="./assets/css/medicaments.css">
+	<link rel="stylesheet" href="/assets/css/medicaments.css">
 {% endblock %}
 
 
@@ -15,7 +15,7 @@
 		<div class="meal-cards-container">
 			<div class='foods-title'>
 				<div>
-					<img src="./assets/media/icons/icon_pills.svg" alt="Icône des médicaments">
+					<img src="/assets/media/icons/icon_pills.svg" alt="Icône des médicaments">
 				</div>
 				<h2>
 					<span>{{user.firstname}}</span>, ici se trouvent tes médicaments !</h2>
@@ -31,10 +31,6 @@
 							<div class="meal-label">
 								<h4>Quantité prise :&nbsp;&nbsp;</h4>
 								<p>{{ medicament.medicQuantityNumber }}&nbsp;&nbsp;{{medicament.medicQuantity}}</p>
-							</div>
-							<div class="meal-label">
-								<h4>Fréquence :&nbsp;&nbsp;</h4>
-								<p>{{ medicament.medicFrequency }}</p>
 							</div>
 							<div class="meal-label">
 								<h4>Date de début :&nbsp;&nbsp;</h4>
@@ -64,8 +60,8 @@
 							</div>
 						</div>
 						<div class="links-card-user">
-							<a id="delete-btn" href="./medicamentdelete/{{medicament.id}}"><img src="./assets/media/icons/icon_trash.svg" alt="Icône d'une poubelle">Supprimer</a>
-							<a id="update-btn" href="./medicamentupdate/{{medicament.id}}"><img src="./assets/media/icons/icon_edit.svg" alt="Icône de modification">Modifier</a>
+							<a id="delete-btn" href="/medicamentdelete/{{medicament.id}}"><img src="/assets/media/icons/icon_trash.svg" alt="Icône d'une poubelle">Supprimer</a>
+							<a id="update-btn" href="/medicamentupdate/{{medicament.id}}"><img src="/assets/media/icons/icon_edit.svg" alt="Icône de modification">Modifier</a>
 						</div>
 					</div>
 				{% endfor %}
@@ -79,23 +75,28 @@
 	<section class="addfood-container">
 		<div class="title-info">
 			<div class="img-info">
-				<img src="./assets/media/icons/icon_pills.svg" alt="Icône de médicaments">
+				<img src="/assets/media/icons/icon_pills.svg" alt="Icône de médicaments">
 			</div>
 			<div>
 				<h2>+ Ajouter un médicament</h2>
 			</div>
 		</div>
-		<form class="form-addfood" method="POST" action="/addmedicaments">
+		<form class="form-addfood" method="POST" {% if medicament %} action="/medicamentupdate/{{medicament.id}}" {% else %} action="/addmedicaments" {% endif %}>
+			<div class="label-cards">
+				<label for="medicEmail">Email :</label>
+				<input type="text" name="medicEmail" id="medicEmail" value="{{medicament.medicEmail}}" placeholder="Entrez votre email">
+			</div>
 			<div class="label-cards">
 				<label for="medicName">Médicament :</label>
-				<input type="text" name="medicName" id="medicName" value="{{medicament.medicName}}">
+				<input type="text" name="medicName" id="medicName" value="{{medicament.medicName}}" placeholder="Entrez le nom du médicament">
 			</div>
 
 			<div class="label-cards">
 				<label for="medicQuantityNumber">Quantité :</label>
-				<input type="text" name="medicQuantityNumber" id="medicQuantityNumber" value="{{medicament.medicQuantityNumber}}">
+				<input type="text" name="medicQuantityNumber" id="medicQuantityNumber" value="{{medicament.medicQuantityNumber}}" placeholder="Ex: 1, 1.3, 2.6, etc.">
 
 				<select name="medicQuantity" id="medicQuantity">
+					<option value="undefined">undefined</option>
 					<option value="Cpr.">Cpr.</option>
 					<option value="Gél.">Gél.</option>
 					<option value="Susp.">Susp.</option>
@@ -122,12 +123,12 @@
 
 			<div class="label-cards">
 				<label for="medicSymptoms">Symptômes :</label>
-				<textarea name="medicSymptoms" id="medicSymptoms">{{ food.medicSymptoms }}</textarea>
+				<textarea name="medicSymptoms" id="medicSymptoms" placeholder="Décrivez ce que vous avez ressenti">{{ food.medicSymptoms }}</textarea>
 			</div>
 
 			<div class="label-cards">
 				<label for="medicComments">Notes supplémentaires :</label>
-				<textarea name="medicComments" id="medicComments">{{ food.medicComments }}</textarea>
+				<textarea name="medicComments" id="medicComments" placeholder="Si vous avez des commentaires à noter...">{{ food.medicComments }}</textarea>
 			</div>
 
 			<button id="btn-submit" type="submit">Enregistrer</button>

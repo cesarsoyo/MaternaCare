@@ -20,14 +20,14 @@ const medicamentsSchema = new mongoose.Schema({
     // Forme du médicament
     medicQuantity: {
         type: String,
-        enum: ['Cpr.', 'Gel.', 'Susp.', 'Sol.', 'Pom.', 'Crème.', 'Gtt.', 'Inhale.', 'Compl.', 'Patch.'],
+        enum: ['undefined','Cpr.', 'Gel.', 'Susp.', 'Sol.', 'Pom.', 'Crème.', 'Gtt.', 'Inhale.', 'Compl.', 'Patch.'],
     },
 
     // Fréquence d'administration
-    medicFrequency: {
-        type: String,
-        enum: ['Une fois par jour', 'Deux fois par jour', 'Trois fois par jour', 'Quotidien', 'Hebdomadaire', 'Mensuel', 'Au besoin', 'Après chaque repas', 'Avant d\'aller au lit', 'Autre'],
-    },
+    // medicFrequency: {
+    //     type: String,
+    //     enum: ['Une fois par jour', 'Deux fois par jour', 'Trois fois par jour', 'Quotidien', 'Hebdomadaire', 'Mensuel', 'Au besoin', 'Après chaque repas', 'Avant d\'aller au lit', 'Autre'],
+    // },
 
     // Date de début du traitement
     medicStartDate: {

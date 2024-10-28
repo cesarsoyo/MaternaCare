@@ -6,12 +6,21 @@ const medicamentsModel = require("../models/medicamentsModel")
 
 const pdfRouter = require('express').Router()
 
+const formatDate = (date) => {
+    const d = new Date(date);
+    const day = String(d.getDate()).padStart(2, '0');
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+};
+
 pdfRouter.get('/generate-pdf', async (req, res) => {
     const email = req.query.email;
 
     try {
         const user = await userModel.findOne({ email: email });
         const foods = await foodModel.find({ mealEmail: email });
+        const medicaments = await medicamentsModel.find({ medicEmail: email });
         if (!user) {
             return res.status(404).json({ message: 'Utilisateur non trouvé' });
         }
@@ -25,11 +34,10 @@ pdfRouter.get('/generate-pdf', async (req, res) => {
         doc.text(`Email: ${user.email}`, 20, 50);
         doc.text(`Rôle: ${user.role}`, 20, 60);
 
-        // html email + medicModel email
         doc.setFontSize(18);
         doc.text("Information de l'alimentation", 20, 80);
         doc.setFontSize(12);
-        let yPosition = 90; // Posición inicial para el texto de los alimentos
+        let yPosition = 90; 
 
         foods.forEach(food => {
             doc.text(`Titre du plat : ${food.mealTitle}`, 20, yPosition);
@@ -40,9 +48,25 @@ pdfRouter.get('/generate-pdf', async (req, res) => {
             doc.text(`Heure du repas : ${food.mealTime}`, 20, yPosition + 50);
             doc.text(`Préparation : ${food.mealPreparation}`, 20, yPosition + 60);
             doc.text(`Commentaires : ${food.mealComments}`, 20, yPosition + 70);
-            yPosition += 60; // Aumentar la posición para el siguiente alimento
+            yPosition += 60;
         });
 
+        let yPositionMedic = yPosition + 20;
+
+        doc.setFontSize(18);
+        doc.text("Information des médicaments", 20, yPositionMedic);
+        doc.setFontSize(12);
+        yPositionMedic += 10;
+
+        medicaments.forEach(medicament => {
+            doc.text(`Titre du médicament : ${medicament.medicName}`, 20, yPositionMedic);
+            doc.text(`Dosage : ${medicament.medicQuantityNumber}  ${medicament.medicQuantity}`, 20, yPositionMedic + 10);
+            doc.text(`Date de début : ${formatDate(medicament.medicStartDate)}`, 20, yPositionMedic + 20);
+            doc.text(`Date de fin : ${formatDate(medicament.medicEndDate)}`, 20, yPositionMedic + 30);
+            doc.text(`Symptômes : ${medicament.medicSymptoms}`, 20, yPositionMedic + 40);
+            doc.text(`Commentaires : ${medicament.medicComments}`, 20, yPositionMedic + 50);
+            yPositionMedic += 60;
+        });
 
         const pdfData = doc.output('arraybuffer');
         const pdfBuffer = Buffer.from(pdfData);
