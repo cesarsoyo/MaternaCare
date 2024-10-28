@@ -5,7 +5,7 @@ const userModel = require('../models/userModel');
 const authGuard = async (req, res, next) => {
     try {
         // On vérifie si un utilisateur est connecté
-        if (req.session.user) {
+        if (req.session && req.session.user) {
             // On cherche l'utilisateur dans la base de données avec son ID
             const userFinded = await userModel.findOne({ _id: req.session.user._id }); // Vérifier que l'utilisateur qui est en session existe en bdd
             // Si l'utilisateur est trouvé

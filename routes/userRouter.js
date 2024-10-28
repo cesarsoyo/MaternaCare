@@ -4,7 +4,7 @@ const authGuard = require('../middleware/authGuard')
 const userModel = require('../models/userModel')
 // Importation de la bibliothèque bcrypt pour le hachage
 const bcrypt = require('bcrypt')
-const Food = require("../models/foodModel")
+const foodModel = require("../models/foodModel")
 // Création d'un routeur Express
 const userRouter = require('express').Router()
 
@@ -74,13 +74,23 @@ userRouter.get('/logout', (req, res) => {
 
 userRouter.get('/addfood', authGuard, async (req, res) => {
     const user = await userModel.findById(req.session.user._id)
-    const foods = await Food.find();
+    const foods = await foodModel.find();
 
     res.render('pages/addfood.twig', {
         user: req.session.user,
         foods: foods
     })
 })
+
+userRouter.get('/fooddelete/:foodid', async (req, res) => {
+    try {
+        await foodModel.deleteOne({ _id: req.params.foodid });
+        // await userModel.updateOne({ _id: req.session.user._id }, { $pull: { foods: req.params.foodid } });
+        res.status(200).send({ message: 'Le plat a été supprimé avec succès' });
+    } catch (error) {
+        res.status(500).send({ error: 'Erreur lors de la suppression du plat' });
+    }
+});
 
 userRouter.get('/addmedicaments', authGuard, async (req, res) => {
     const user = await userModel.findById(req.session.user._id)
@@ -89,18 +99,12 @@ userRouter.get('/addmedicaments', authGuard, async (req, res) => {
     })
 })
 
-userRouter.get('/privacypg', authGuard, async (req, res) => {
-    const user = await userModel.findById(req.session.user._id)
-    res.render('pages/privacypg.twig', {
-        user: req.session.user
-    })
+userRouter.get('/privacypg', (req, res) => {
+    res.render('pages/privacypg.twig')
 })
 
-userRouter.get('/securitypg', authGuard, async (req, res) => {
-    const user = await userModel.findById(req.session.user._id)
-    res.render('pages/securitypg.twig', {
-        user: req.session.user
-    })
+userRouter.get('/securitypg', (req, res) => {
+    res.render('pages/securitypg.twig')
 })
 
 userRouter.get('/hospitals', authGuard, async (req, res) => {

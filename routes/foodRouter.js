@@ -16,19 +16,34 @@ foodRouter.get('/addfood', async (req, res) => {
     }
 });
 
+
+// foodRouter.get('/foodupdate/:userid', authGuard, async (req, res) => {
+//     try {
+//         let food = await foodModel.findById(req.params.userid);
+//         res.render("pages/addfood.twig", {
+//             title: "Modifier un plat",
+//             enterprise: await enterModel.findById(req.session.enterprise),
+//             food: food
+//         })
+//     } catch (error) {
+//         res.render("pages/dashboard.twig")
+//     }
+// });
+
+
 // Obtenir tous les aliments d'un patient par son ID (GET)
-foodRouter.get('/foods/:userId', async (req, res) => {
-    try {
-        const { userId } = req.params;
-        const patientFoods = await Food.find({ userId });  // Rechercher tous les aliments correspondant à l'ID du patient
-        if (patientFoods.length === 0) {
-            return res.status(404).json({ message: 'Aucun aliment trouvé pour ce patient.' });
-        }
-        res.status(200).json(patientFoods);
-    } catch (error) {
-        res.status(500).json({ message: 'Erreur lors de la récupération des aliments du patient', error });
-    }
-});
+// foodRouter.get('/foods/:userId', async (req, res) => {
+//     try {
+//         const { userId } = req.params;
+//         const patientFoods = await Food.find({ userId });  // Rechercher tous les aliments correspondant à l'ID du patient
+//         if (patientFoods.length === 0) {
+//             return res.status(404).json({ message: 'Aucun aliment trouvé pour ce patient.' });
+//         }
+//         res.status(200).json(patientFoods);
+//     } catch (error) {
+//         res.status(500).json({ message: 'Erreur lors de la récupération des aliments du patient', error });
+//     }
+// });
 
 // Créer un nouvel aliment (POST)
 foodRouter.post('/addfood', async (req, res) => {

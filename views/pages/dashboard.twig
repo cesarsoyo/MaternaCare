@@ -18,32 +18,59 @@
 		<h1>Prête à embrasser cette nouvelle étape ?</h1>
 		<div id="info"></div>
 
-
-		<div class="info-baby-container">
-			<div class="title-info">
-				<div class="img-info">
-					<img src="./assets/media/icons/icon_bottlemilk.svg" alt="Icône d'une tétine">
+		<div class="bicards-info">
+			<div class="info-baby-container">
+				<div class="title-info">
+					<div class="img-info">
+						<img src="./assets/media/icons/icon_bottlemilk.svg" alt="Icône d'une tétine">
+					</div>
+					<div>
+						<h2>Détails sur ton petit trésor :</h2>
+					</div>
 				</div>
-				<div>
-					<h2>Détails sur ton petit trésor :</h2>
+
+				<div class='info-container' style="display: none;">
+					<div class="text-info weight">
+						<p class="numb">1.4</p>
+						<p class="units">Kg</p>
+					</div>
+					<div class="text-info size">
+						<p class="numb">41</p>
+						<p class="units">cm</p>
+					</div>
+					<div class="text-info weeks">
+						<p class="numb">31</p>
+						<p class="units">semaines</p>
+					</div>
 				</div>
 			</div>
 
-			<div class='info-container'>
-				<div class="text-info weight">
-					<p class="numb">1.4</p>
-					<p class="units">Kg</p>
+			<div class="info-baby-container">
+				<div class="title-info">
+					<div class="img-info">
+						<img src="./assets/media/icons/icon_electrocardio.svg" alt="Icône d'une tétine">
+					</div>
+					<div>
+						<h2>Contractions récentes</h2>
+					</div>
 				</div>
-				<div class="text-info size">
-					<p class="numb">41</p>
-					<p class="units">cm</p>
-				</div>
-				<div class="text-info weeks">
-					<p class="numb">31</p>
-					<p class="units">semaines</p>
+				<div class='info-container' style="display: none;">
+					<div class="text-info weight">
+						<p class="numb">Données non enregistrées</p>
+						<p class="units"></p>
+					</div>
+					<div class="text-info size">
+						<p class="numb"></p>
+						<p class="units"></p>
+					</div>
+					<div class="text-info weeks">
+						<p class="numb"></p>
+						<p class="units"></p>
+					</div>
 				</div>
 			</div>
 		</div>
+
 
 		<div class="tools-container">
 			<div>
@@ -165,6 +192,10 @@
 				</div>
 
 			</div>
+
+			<div>
+				<button class='btn-download'>Téléchargement PDF</button>
+			</div>
 		</div>
 
 	</section>
@@ -224,13 +255,13 @@ infoContainer.appendChild(dateCardsContainer);
 }
 
 const daysOfWeek = [
-"Dimanche",
-"Lundi",
-"Mardi",
-"Mercredi",
-"Jeudi",
-"Vendredi",
-"Samedi"
+"Dim",
+"Lun",
+"Mar",
+"Mer",
+"Jeu",
+"Ven",
+"Sam"
 ];
 const months = [
 "Janvier",
@@ -276,6 +307,18 @@ window.location.href = 'doctors';
 
 document.getElementById('contactCard').addEventListener('click', function () {
 window.location.href = 'contact';
+});
+
+const infoBabyContainer = document.querySelector('.info-baby-container');
+
+infoBabyContainer.addEventListener('click', () => {
+const infoContainer = infoBabyContainer.querySelector('.info-container');
+
+if (infoContainer.style.display === 'none' || infoContainer.style.display === '') {
+infoContainer.style.display = 'flex';
+} else {
+infoContainer.style.display = 'none';
+}
 });
 	</script>
 {% endblock %}

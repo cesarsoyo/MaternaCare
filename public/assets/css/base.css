@@ -14,6 +14,7 @@
 
     html {
         background-color: #F3FBE8;
+        overflow-x: hidden;
     }
 
 }

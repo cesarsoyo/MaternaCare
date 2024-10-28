@@ -10,7 +10,7 @@ const foodSchema = new mongoose.Schema({
     // Type de repas
     mealType: {
         type: String,
-        enum: ['entree', 'plat_principal', 'dessert', 'boisson'],  // Seules ces valeurs sont autorisées
+        enum: ['undefined', 'entree', 'plat_principal', 'dessert', 'boisson'],  // Seules ces valeurs sont autorisées
         required: true
     },
 
@@ -32,7 +32,7 @@ const foodSchema = new mongoose.Schema({
 
     mealContentType: {
         type: String,
-        enum: ['viande', 'cereales', 'legumineuses', 'fruits', 'legumes', 'poisson', 'produits_laitiers', 'boissons', 'graines_oleagineuses', 'sucreries']
+        enum: ['undefined', 'viande', 'cereales', 'legumineuses', 'fruits', 'legumes', 'poisson', 'produits_laitiers', 'boissons', 'graines_oleagineuses', 'sucreries']
     },
 
     mealContentQuantity: {
