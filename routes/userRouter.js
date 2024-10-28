@@ -5,6 +5,7 @@ const userModel = require('../models/userModel')
 // Importation de la bibliothèque bcrypt pour le hachage
 const bcrypt = require('bcrypt')
 const foodModel = require("../models/foodModel")
+const medicamentsModel = require("../models/medicamentsModel")
 // Création d'un routeur Express
 const userRouter = require('express').Router()
 
@@ -82,6 +83,16 @@ userRouter.get('/addfood', authGuard, async (req, res) => {
     })
 })
 
+userRouter.get('/addmedicaments', authGuard, async (req, res) => {
+    const user = await userModel.findById(req.session.user._id)
+    const medicaments = await medicamentsModel.find();
+
+    res.render('pages/addmedicaments.twig', {
+        user: req.session.user,
+        medicaments: medicaments
+    })
+})
+
 userRouter.get('/fooddelete/:foodid', async (req, res) => {
     try {
         await foodModel.deleteOne({ _id: req.params.foodid });
@@ -89,6 +100,14 @@ userRouter.get('/fooddelete/:foodid', async (req, res) => {
         res.status(200).send({ message: 'Le plat a été supprimé avec succès' });
     } catch (error) {
         res.status(500).send({ error: 'Erreur lors de la suppression du plat' });
+    }
+});
+userRouter.get('/medicamentdelete/:medicamentid', async (req, res) => {
+    try {
+        await medicamentsModel.deleteOne({ _id: req.params.medicamentid });
+        res.status(200).send({ message: 'Le médicament a été supprimé avec succès' });
+    } catch (error) {
+        res.status(500).send({ error: 'Erreur lors de la suppression du médicament' });
     }
 });
 

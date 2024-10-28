@@ -49,13 +49,17 @@ const medicamentsSchema = new mongoose.Schema({
         type: String  // Optionnel
     },
 
+    medicEmail: {
+        type: String  // Optionnel
+    },
+
     // Champ pour spécifier "Autre" si sélectionné dans la fréquence
-    otherSpecification: {
-        type: String,  // Ce champ est utilisé si l'option "Autre" est sélectionnée dans la fréquence
-        required: function () {
-            return this.frequency === 'Autre';
-        }
-    }
+    // otherSpecification: {
+    //     type: String,  // Ce champ est utilisé si l'option "Autre" est sélectionnée dans la fréquence
+    //     required: function () {
+    //         return this.frequency === 'Autre';
+    //     }
+    // }
 });
 
 // Créer le modèle de Mongoose

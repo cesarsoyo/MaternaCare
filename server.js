@@ -26,10 +26,11 @@ app.use(medicamentsRouter)
 app.use('/api', pdfRouter);
 
 
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'twig');
 app.get('/accueil', (req, res) => {
-res.sendFile(path.join(__dirname, 'views', 'accueil.html')); // Envía el archivo HTML directamente
+res.sendFile(path.join(__dirname, 'views', 'accueil.html')); 
 });
 
 

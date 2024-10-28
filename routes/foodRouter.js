@@ -1,20 +1,20 @@
+const authGuard = require('../middleware/authGuard')
 // Création d'un routeur Express
 const foodRouter = require('express').Router()
 // Importation du modèle utilisateur
 const Food = require('../models/foodModel')
 // Importation du middleware d'authentification
-const authGuard = require('../middleware/authGuard')
 
 
 // Obtenir tous les aliments (GET)
-foodRouter.get('/addfood', async (req, res) => {
-    try {
-        const foods = await Food.find();
-        res.status(200).json(foods);
-    } catch (error) {
-        res.status(500).json({ message: 'Erreur lors de la récupération des aliments', error });
-    }
-});
+// foodRouter.get('/addfood', async (req, res) => {
+//     try {
+//         const foods = await Food.find();
+//         res.status(200).json(foods);
+//     } catch (error) {
+//         res.status(500).json({ message: 'Erreur lors de la récupération des aliments', error });
+//     }
+// });
 
 
 // foodRouter.get('/foodupdate/:userid', authGuard, async (req, res) => {
