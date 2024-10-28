@@ -21,7 +21,7 @@
 				</li>
 			</a>
 			<a href="#" class="image-link">
-				<li><img src="/assets/media/icons/icon_hospital.svg" alt="Icône hospitaux" class="menu-image">
+				<li><img src="/assets/media/icons/icon_hospital.svg" alt="Icône hospitaux" class="menu-image" id="hospitals-icon">
 				</li>
 			</a>
 			<a href="#" class="image-link">
@@ -32,10 +32,10 @@
 				<li><img src="/assets/media/icons/icon_library.svg" alt="Icône publications" class="menu-image"></li>
 			</a>
 			<a href="#" class="image-link">
-				<li><img src="/assets/media/icons/icon_wagon.svg" alt="Icône centres médicaux" class="menu-image"></li>
+				<li><img src="/assets/media/icons/icon_earphone.svg" alt="Icône contact service client" class="menu-image" id="contact-icon"></li>
 			</a>
 			<a href="#" class="image-link">
-				<li><img src="/assets/media/icons/icon_doctorsuitcase.svg" alt="Icône médecins" class="menu-image"></li>
+				<li><img src="/assets/media/icons/icon_doctorsuitcase.svg" alt="Icône médecins" class="menu-image" id="doctors-icon"></li>
 			</a>
 			<a href="#" class="image-link">
 				<li><img src="/assets/media/icons/icon_downloaddoc.svg" alt="Documents" class="menu-image">
@@ -112,6 +112,22 @@
 
 		document.getElementById('medic-icon').addEventListener('click', function () {
 			window.location.href = 'addmedicaments';
+		});
+
+		document.getElementById('doctors-icon').addEventListener('click', function () {
+			window.location.href = 'doctors';
+		});
+		
+		document.getElementById('hospitals-icon').addEventListener('click', function () {
+			window.location.href = 'hospitals';
+		});
+		
+		document.getElementById('contact-icon').addEventListener('click', function () {
+			window.location.href = 'contact';
+		});
+
+		document.getElementById('logo-header').addEventListener('click', function () {
+			window.location.href = '/accueil';
 		});
 	</script>
 </header>

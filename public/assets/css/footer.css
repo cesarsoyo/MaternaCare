@@ -124,3 +124,127 @@
 
     }
 }
+
+
+
+* {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+}
+
+footer {
+    background-color: #23737D;
+}
+
+.social-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+    margin: auto;
+}
+
+.social-container div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.social-container img {
+    width: 80px;
+    height: 80px;
+    filter: brightness(0) invert(1);
+}
+
+#fc-logo {
+    width: 95px;
+    height: 95px;
+}
+
+.social-container h3 {
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: white;
+
+}
+
+.links-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: space-around;
+    align-items: start;
+    gap: 8px;
+}
+
+.links-cards {
+    width: 40%;
+    padding: 0 10px;
+}
+
+.links-cards h4 {
+    border-bottom: 1px solid white;
+    padding-bottom: 4px;
+    color: white;
+
+}
+
+.links-cards ul {
+    list-style: none;
+    padding: 0;
+}
+
+.links-cards li {
+    margin: 0.5em 0;
+    line-height: 80%;
+
+}
+
+.links-cards a {
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 9px;
+    color: white;
+
+
+    &:visited {
+        color: white;
+    }
+
+    &:hover {
+        color: #A2F3D6;
+    }
+}
+
+.copy-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 20px 30px 20px;
+}
+
+.copy-container img {
+    width: 70px;
+    height: auto;
+}
+
+.copy-container p {
+    font-size: 12px;
+    font-weight: 300;
+   width: 25%;
+   color: white;
+
+}

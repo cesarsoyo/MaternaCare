@@ -37,7 +37,11 @@
     }
 
     .error {
-        color: #A2F3D6;
+        color: red;
+        font-style: italic;
+        text-align: center;
+        margin-left: 20%;
+        margin-top: 10px;
     }
 
     .form-login-container {

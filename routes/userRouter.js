@@ -4,6 +4,7 @@ const authGuard = require('../middleware/authGuard')
 const userModel = require('../models/userModel')
 // Importation de la bibliothèque bcrypt pour le hachage
 const bcrypt = require('bcrypt')
+const Food = require("../models/foodModel")
 // Création d'un routeur Express
 const userRouter = require('express').Router()
 
@@ -73,41 +74,56 @@ userRouter.get('/logout', (req, res) => {
 
 userRouter.get('/addfood', authGuard, async (req, res) => {
     const user = await userModel.findById(req.session.user._id)
+    const foods = await Food.find();
+
     res.render('pages/addfood.twig', {
-        user: req.session.user
-    }) 
+        user: req.session.user,
+        foods: foods
+    })
 })
 
+userRouter.get('/addmedicaments', authGuard, async (req, res) => {
+    const user = await userModel.findById(req.session.user._id)
+    res.render('pages/addmedicaments.twig', {
+        user: req.session.user
+    })
+})
 
-userRouter.get('/addmedicaments', (req, res) => {
-    res.render("pages/addmedicaments.twig") // Rendu de la page de confidentialité
-});
+userRouter.get('/privacypg', authGuard, async (req, res) => {
+    const user = await userModel.findById(req.session.user._id)
+    res.render('pages/privacypg.twig', {
+        user: req.session.user
+    })
+})
 
-// Route GET pour afficher la page de confidentialité
-userRouter.get('/privacypg', (req, res) => {
-    res.render("pages/privacypg.twig") // Rendu de la page de confidentialité
-});
+userRouter.get('/securitypg', authGuard, async (req, res) => {
+    const user = await userModel.findById(req.session.user._id)
+    res.render('pages/securitypg.twig', {
+        user: req.session.user
+    })
+})
 
-// Route GET pour afficher la page de sécurité
-userRouter.get('/securitypg', (req, res) => {
-    res.render("pages/securitypg.twig") // Rendu de la page de sécurité
-});
+userRouter.get('/hospitals', authGuard, async (req, res) => {
+    const user = await userModel.findById(req.session.user._id)
+    res.render('pages/hospitals.twig', {
+        user: req.session.user
+    })
+})
 
-userRouter.get('/hospitals', (req, res) => {
-    res.render("pages/hospitals.twig") // Rendu de la page de sécurité
-});
+userRouter.get('/doctors', authGuard, async (req, res) => {
+    const user = await userModel.findById(req.session.user._id)
+    res.render('pages/doctors.twig', {
+        user: req.session.user
+    })
+})
 
-userRouter.get('/doctors', (req, res) => {
-    res.render("pages/doctors.twig") // Rendu de la page de sécurité
-});
+userRouter.get('/contact', authGuard, async (req, res) => {
+    const user = await userModel.findById(req.session.user._id)
+    res.render('pages/contact.twig', {
+        user: req.session.user
+    })
+})
 
-userRouter.get('/contact', (req, res) => {
-    res.render("pages/contact.twig") // Rendu de la page de sécurité
-});
-
-// userRouter.get('/accueil', (req, res) => {
-//     res.render("./accueil.html")
-// });
 
 userRouter.get('', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'accueil.html'));

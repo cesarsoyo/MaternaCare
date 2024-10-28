@@ -12,6 +12,7 @@
 
     html {
         background-color: #F3FBE8;
+        padding: 10px 15px 20px;
     }
 
     .main-container {
@@ -61,8 +62,10 @@
     .page-title {
         font-size: 12px;
         font-weight: 800;
-        margin-top: -27px;
         color: #264559;
+        z-index: -3;
+        width: 100%;
+        margin-left: 40%;
     }
 
     #welcome-text {

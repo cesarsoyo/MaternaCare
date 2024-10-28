@@ -164,5 +164,68 @@
         font-weight: 600;
     }
 
+    .tools-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .tools-container h2 {
+        font-size: 12px;
+        margin-bottom: 26px;
+        font-weight: 600;
+        color: #264559;
+    }
+
+    .toolcards-container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+
+    .bidiv {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .tool-cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        background-color: white;
+        border-radius: 20px;
+        height: 135px;
+        width: 135px;
+        box-shadow: rgba(0, 0, 0, 0.2) -3px 3px 5px;
+
+        &:hover {
+            background-color: #264559;
+        }
+    }
+
+    .tool-cards:hover img {
+        filter: brightness(0) invert(1);
+    }
+
+    .tool-cards:hover p {
+        color: white;
+    }
+
+    .tool-cards img {
+        height: 66px;
+    }
+
+    .tool-cards p {
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+        color: #264559;
+    }
+
 
 }

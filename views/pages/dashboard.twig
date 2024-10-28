@@ -46,30 +46,124 @@
 		</div>
 
 		<div class="tools-container">
-			<h2>Outils</h2>
 			<div>
-				<div>
-					<div class="outils-cards" id="foodCard">
-						<div>
-							<img src="" alt="">
+				<h2>Outils</h2>
+			</div>
+			<div class="toolcards-container">
+				<div class="bidiv">
+					<div class="tool-cards" id="foodCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_food.svg" alt="Icône alimentation">
 						</div>
-						<div>
+						<div class='tools-title'>
 							<p>Alimentation</p>
 						</div>
 					</div>
-
-					<div id="medicamentCard">
-						<div>
-							<img src="" alt="">
+					<div class="tool-cards" id="medicamentCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_pills.svg" alt="Icône médicaments">
 						</div>
-						<div>
+						<div class='tools-title'>
 							<p>Médicaments</p>
 						</div>
 					</div>
 				</div>
 
+				<div class="bidiv">
+					<div class="tool-cards" id="hospitalsCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_hospital.svg" alt="Icône hospital">
+						</div>
+						<div class='tools-title'>
+							<p>Hôpitaux</p>
+						</div>
+					</div>
+					<div class="tool-cards" id="doctorsCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_doctorsuitcase.svg" alt="Icône médecins">
+						</div>
+						<div class='tools-title'>
+							<p>Médecins</p>
+						</div>
+					</div>
+				</div>
 
-				<div></div>
+				<div class="bidiv">
+					<div class="tool-cards" id="contactCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_earphone.svg" alt="Icône contact">
+						</div>
+						<div class='tools-title'>
+							<p>Contact</p>
+						</div>
+					</div>
+					<div class="tool-cards" id="notesCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_file.svg" alt="Icône notes">
+						</div>
+						<div class='tools-title'>
+							<p>Notes</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="bidiv">
+					<div class="tool-cards" id="publicationsCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_library.svg" alt="Icône publications">
+						</div>
+						<div class='tools-title'>
+							<p>Publications</p>
+						</div>
+					</div>
+					<div class="tool-cards" id="documentsCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_downloaddoc.svg" alt="Icône documents">
+						</div>
+						<div class='tools-title'>
+							<p>Documents</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="bidiv">
+					<div class="tool-cards" id="contractionsCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_electrocardio1.svg" alt="Icône contractions">
+						</div>
+						<div class='tools-title'>
+							<p>Contractions</p>
+						</div>
+					</div>
+					<div class="tool-cards" id="sportCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_yoga_sport.svg" alt="Icône sport">
+						</div>
+						<div class='tools-title'>
+							<p>Activité physique</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="bidiv">
+					<div class="tool-cards" id="vaccineCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_vaccine.svg" alt="Icône vaccinations">
+						</div>
+						<div class='tools-title'>
+							<p>Vaccinations</p>
+						</div>
+					</div>
+					<div class="tool-cards" id="phoneCard">
+						<div class="background-image">
+							<img src="./assets/media/icons/icon_phone.svg" alt="Icône téléphone">
+						</div>
+						<div class='tools-title'>
+							<p>Appel d'urgence</p>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 
@@ -170,6 +264,18 @@ window.location.href = 'addfood';
 
 document.getElementById('medicamentCard').addEventListener('click', function () {
 window.location.href = 'addmedicaments';
+});
+
+document.getElementById('hospitalsCard').addEventListener('click', function () {
+window.location.href = 'hospitals';
+});
+
+document.getElementById('doctorsCard').addEventListener('click', function () {
+window.location.href = 'doctors';
+});
+
+document.getElementById('contactCard').addEventListener('click', function () {
+window.location.href = 'contact';
 });
 	</script>
 {% endblock %}

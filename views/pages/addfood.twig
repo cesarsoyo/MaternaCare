@@ -1,12 +1,17 @@
 {% extends "../base.twig" %}
 
+{% block styles %}
+	<link rel="stylesheet" href="./assets/css/food.css">
+{% endblock %}
+
+
 {% block title %}
-	<title>{{title}}</title>
+	<title>Suivi de l'alimentation</title>
 {% endblock %}
 
 {% block main %}
 
-	{# <section class="">
+	<section class="">
 		<div>
 			<h2>Tes repas du jour</h2>
 		</div>
@@ -32,32 +37,34 @@
 								{{ food.mealComments }}</p>
 						</article>
 
-						{# <div class="links-card-user">
-														<a id="update-btn" href="./userupdate/{{user.id}}">Modifier l'employé</a>
-														<a id="delete-btn" href="./userdelete/{{user.id}}">Supprimer l'employé</a>
-													</div> #}
-					{# </article>
+						<div class="links-card-user">
+							<a id="update-btn" href="./userupdate/{{user.id}}">Modifier l'employé</a>
+							<a id="delete-btn" href="./userdelete/{{user.id}}">Supprimer l'employé</a>
+						</div>
+					</article>
 				</div>
 			{% endfor %}
 		{% else %}
 			<p>Entrez un nouveau plat, il y en a pas...</p>
 		{% endif %}
 	</div>
-</section> #}
+</section>
 
 
-<section>
-	<div>
-		<div>
-			<img src="" alt="">
-			<img src="" alt="">
+<section class="addfood-container">
+	<div class="title-info">
+		<div class="img-info">
+			<img src="./assets/media/icons/icon_food.svg" alt="Icône d'alimentation">
 		</div>
-		<h3>Ajouter un repas</h3>
-	</div>
-	<form class="" method="POST" action="/addfood">
 		<div>
+			<h2>+ Ajouter un repas</h2>
+		</div>
+	</div>
+	<form class="form-addfood" method="POST" action="/addfood">
+		<div class="label-cards">
 			<label for="mealType">Type de repas :</label>
 			<select name="mealType">
+				<option value="undefined">Choissisez</option>
 				<option value="entree">Entrée</option>
 				<option value="plat_principal">Plat principal</option>
 				<option value="dessert">Dessert</option>
@@ -68,69 +75,72 @@
 			{% endif %}
 
 		</div>
-		<div>
+		<div class="label-cards">
 			<label for="mealTime">Heure de repas :</label>
 			<input type="time" name="mealTime" id="mealTime" value="{{food.mealTime}}">
 		</div>
 
-		<div>
+		<div class="label-cards">
 			<label for="mealTitle">Titre du plat :</label>
-			<input type="text" name="mealTitle" id="mealTitle" value="{{food.mealTitle}}" required>
+			<input type="text" name="mealTitle" id="mealTitle" value="{{food.mealTitle}}" placeholder="Entrez le nom du plat" required>
 			{% if error %}
 				<p>{{error.mealTitle}}</p>
 			{% endif %}
 		</div>
 
-		<div>
-			<div>
-				<label for="mealContentTitle">Contenu :</label>
-				<input type="text" name="mealContentTitle" id="mealContentTitle" value="{{food.mealContentTitle}}">
-			</div>
-			<div>
-				<select name="mealContentType" id="mealContentType">
-					<option value="viande">Viande</option>
-					<option value="cereales">Céréales</option>
-					<option value="legumineuses">Légumineuses</option>
-					<option value="fruits">Fruits</option>
-					<option value="legumes">Légumes</option>
-					<option value="poisson">Poisson</option>
-					<option value="produits_laitiers">Produits laitiers</option>
-					<option value="boissons">Boissons</option>
-					<option value="graines_oleagineuses">Graines oléagineuses</option>
-					<option value="sucreries">Sucreries</option>
-				</select>
-			</div>
-			<div>
-				<select name="mealContentQuantity">
-					<option value="kg">kg</option>
-					<option value="g">g</option>
-					<option value="oz">oz</option>
-					<option value="cuil">cuil.</option>
-					<option value="cuil_a_s">cuil. à s.</option>
-					<option value="cuil_a_c">cuil. à c.</option>
-					<option value="L">L</option>
-					<option value="dL">dL</option>
-					<option value="cL">cL</option>
-					<option value="mL">mL</option>
-					<option value="pintes">pintes</option>
-					<option value="quart">quart</option>
-					<option value="tass">tass.</option>
-					<option value="u">u.</option>
-				</select>
+		<div class="label-cards">
+			<label for="mealContentTitle">Contenu :</label>
+			<div class="content-inputs">
+				<div>
+					<input id="ingredient" type="text" name="mealContentTitle" id="mealContentTitle" value="{{food.mealContentTitle}}" placeholder="Ingrédient">
+				</div>
+				<div>
+					<select name="mealContentType" id="mealContentType">
+						<option value="undefined">Type</option>
+						<option value="viande">Viande</option>
+						<option value="cereales">Céréales</option>
+						<option value="legumineuses">Légumineuses</option>
+						<option value="fruits">Fruits</option>
+						<option value="legumes">Légumes</option>
+						<option value="poisson">Poisson</option>
+						<option value="produits_laitiers">Produits laitiers</option>
+						<option value="boissons">Boissons</option>
+						<option value="graines_oleagineuses">Graines oléagineuses</option>
+						<option value="sucreries">Sucreries</option>
+					</select>
+				</div>
+				<div>
+					<select name="mealContentQuantity" id="mealContentUnits">
+						<option value="kg">kg</option>
+						<option value="g">g</option>
+						<option value="oz">oz</option>
+						<option value="cuil">cuil.</option>
+						<option value="cuil_a_s">cuil. à s.</option>
+						<option value="cuil_a_c">cuil. à c.</option>
+						<option value="L">L</option>
+						<option value="dL">dL</option>
+						<option value="cL">cL</option>
+						<option value="mL">mL</option>
+						<option value="pintes">pintes</option>
+						<option value="quart">quart</option>
+						<option value="tass">tass.</option>
+						<option value="u">u.</option>
+					</select>
+				</div>
 			</div>
 		</div>
 
-		<div>
+		<div class="label-cards">
 			<label for="mealPreparation">Préparation :</label>
-			<textarea name="mealPreparation" id="mealPreparation">{{ food.mealTime }}</textarea>
+			<textarea name="mealPreparation" id="mealPreparation" placeholder="Entrez la méthode de préparation">{{ food.mealTime }}</textarea>
 		</div>
 
-		<div>
+		<div class="label-cards">
 			<label for="mealComments">Commentaires :</label>
-			<textarea name="mealComments" id="mealComments">{{ food.mealTime }}</textarea>
+			<textarea name="mealComments" id="mealComments" placeholder="Comment vous êtes-vous sentie avec ce repas ?">{{ food.mealTime }}</textarea>
 		</div>
 
-		<button id="" type="submit">Enregistrer</button>
+		<button id="btn-submit" type="submit">Enregistrer</button>
 	</form>
 </section>
 
