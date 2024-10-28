@@ -48,6 +48,10 @@ const foodSchema = new mongoose.Schema({
     // Commentaires supplémentaires
     mealComments: {
         type: String  
+    },
+
+    mealEmail: {
+        type: String,
     }
 });
 

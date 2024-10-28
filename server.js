@@ -4,6 +4,7 @@ const session = require('express-session')
 const userRouter = require('./routes/userRouter');
 const foodRouter = require('./routes/foodRouter');
 const medicamentsRouter = require('./routes/medicamentsRouter');
+const pdfRouter = require('./routes/pdfRouter');
 require('dotenv').config();
 const path = require('path');
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(userRouter)
 app.use(foodRouter)
 app.use(medicamentsRouter)
+app.use('/api', pdfRouter);
 
 
 app.set('views', path.join(__dirname, 'views'));

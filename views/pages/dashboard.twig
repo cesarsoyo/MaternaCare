@@ -194,7 +194,7 @@
 			</div>
 
 			<div>
-				<button class='btn-download'>Téléchargement PDF</button>
+				<button class='btn-download' onclick="generatePDF('{{user.email}}')">Téléchargement PDF</button>
 			</div>
 		</div>
 
@@ -320,5 +320,25 @@ infoContainer.style.display = 'flex';
 infoContainer.style.display = 'none';
 }
 });
+
+function generatePDF(email) {
+fetch (`/api/generate-pdf?email=${
+encodeURIComponent(email)
+}`).then(response => {
+if (!response.ok) {
+throw new Error('Erreur lors du téléchargement du PDF');
+}
+return response.blob();
+}).then(blob => {
+const url = window.URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = `Usuario_${email}.pdf`;
+document.body.appendChild(a);
+a.click();
+a.remove();
+window.URL.revokeObjectURL(url);
+}).catch(error => console.error('Erreur lors du téléchargement du PDF :', error));
+}
 	</script>
 {% endblock %}

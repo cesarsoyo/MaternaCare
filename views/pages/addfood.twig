@@ -85,6 +85,10 @@
 		</div>
 		<form class="form-addfood" method="POST" action="/addfood">
 			<div class="label-cards">
+				<label for="mealEmail">Email :</label>
+				<input type="text" name="mealEmail" id="mealEmail" value="{{food.mealEmail}}">
+			</div>
+			<div class="label-cards">
 				<label for="mealType">Type de repas :</label>
 				<select name="mealType">
 					<option value="undefined">Choissisez</option>
